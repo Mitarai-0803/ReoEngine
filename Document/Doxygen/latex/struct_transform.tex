@@ -1,0 +1,48 @@
+\doxysection{Transform クラス}
+\hypertarget{struct_transform}{}\label{struct_transform}\index{Transform@{Transform}}
+
+
+{\ttfamily \#include $<$Transform.\+h$>$}
+
+
+
+Transform 連携図
+% FIG 0
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_transform_a38ce8f7dd6d5bd371a19ebb94054404a}\label{struct_transform_a38ce8f7dd6d5bd371a19ebb94054404a} 
+void {\bfseries Set\+Position} (float x, float y, float z=0.\+0f)
+\item 
+\Hypertarget{struct_transform_afa4479edb5d60f3519dac0139b7aa3de}\label{struct_transform_afa4479edb5d60f3519dac0139b7aa3de} 
+void {\bfseries Translate} (float dx, float dy, float dz=0.\+0f)
+\item 
+\Hypertarget{struct_transform_a25c345c9f4d72321c1fa622f52c02b57}\label{struct_transform_a25c345c9f4d72321c1fa622f52c02b57} 
+void {\bfseries Set\+Rotation} (float pitch, float yaw, float roll=0.\+0f)
+\item 
+\Hypertarget{struct_transform_a035d45a36d2b003ffa6653ed21119d52}\label{struct_transform_a035d45a36d2b003ffa6653ed21119d52} 
+void {\bfseries Rotate} (float dpitch, float dyaw, float droll=0.\+0f)
+\item 
+\Hypertarget{struct_transform_a7ee1764f2d457dfb4f49c6d96ded5b98}\label{struct_transform_a7ee1764f2d457dfb4f49c6d96ded5b98} 
+void {\bfseries Set\+Scale} (float sx, float sy, float sz=1.\+0f)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_transform_ac940fdbf60a92c626326e571935dffdb}\label{struct_transform_ac940fdbf60a92c626326e571935dffdb} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries position}
+\begin{DoxyCompactList}\small\item\em ワールド空間の位置 \end{DoxyCompactList}\item 
+\Hypertarget{struct_transform_a0cd23a67d612501825aed70b67a10d0d}\label{struct_transform_a0cd23a67d612501825aed70b67a10d0d} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries rotation}
+\begin{DoxyCompactList}\small\item\em 回転（度単位のオイラー角\+: pitch(x), yaw(y), roll(z)） \end{DoxyCompactList}\item 
+\Hypertarget{struct_transform_a2b4006024b283c6af2813e78e7092364}\label{struct_transform_a2b4006024b283c6af2813e78e7092364} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries scale} \{1.\+0f, 1.\+0f, 1.\+0f\}
+\begin{DoxyCompactList}\small\item\em スケール \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+位置・回転（オイラー角）・スケールを保持する簡易トランスフォームです。 
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/user/\+Documents/\+Reo\+Engine/src/\mbox{\hyperlink{_transform_8h}{Transform.\+h}}\end{DoxyCompactItemize}

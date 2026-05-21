@@ -1,0 +1,448 @@
+ï»¿#pragma once
+//============================================================================
+//! @file   Functions.h
+//! @brief  ƒ†[ƒeƒBƒŠƒeƒBŠÖ”ŒQ‚ÌéŒ¾
+//! @author ƒŒƒI
+//============================================================================
+#include "DxMain.h"
+#include <string>
+#include <numbers>
+#include <math.h>
+#include <algorithm>
+#include "hlsl++.h"
+using namespace hlslpp;
+using namespace std;
+
+namespace MyLibrary {
+//---------------------------------------------------------------
+//! @brief ƒ~ƒŠ•b‚ğ•b‚É•ÏŠ·
+//! @param  [in]     milli      ƒ~ƒŠ•b
+//! @return               •b•\‹L‚Ì•‚“®¬”“_’l
+//---------------------------------------------------------------
+float ConvertMilliToSec(int milli);
+
+//---------------------------------------------------------------
+//! @brief ƒ~ƒŠ•b‚ğ•ª‚É•ÏŠ·
+//! @param  [in]     milli      ƒ~ƒŠ•b
+//! @return               •ª•\‹L‚Ì•‚“®¬”“_’l
+//---------------------------------------------------------------
+float ConvertMilliToMinute(int milli);
+
+//---------------------------------------------------------------
+//! @brief ƒtƒ@ƒCƒ‹ƒpƒX‚©‚çŠg’£q‚ğæ“¾
+//! @param  [in]     filepath   ƒtƒ@ƒCƒ‹ƒpƒXinullptr‰Âj
+//! @return               Šg’£q•¶š—ñiŒ©‚Â‚©‚ç‚È‚¢ê‡‚Í‹ó•¶šj
+//---------------------------------------------------------------
+std::string GetFileExtension(const char* filepath);
+
+//---------------------------------------------------------------
+//! @brief ƒIƒuƒWƒFƒNƒg‚ÌŒü‚«iƒ‰ƒWƒAƒ“j‚ğ‹‚ß‚éi‰ñ“]•âŠÔ‚ ‚èj
+//! @param  [in]     now_pos    Œ»İˆÊ’u
+//! @param  [in]     goal_pos   –Ú•WˆÊ’u
+//! @param  [in]     dir        Œ»İ‚ÌŠp“xiƒ‰ƒWƒAƒ“j
+//! @param  [in]     rot_speed  ‰ñ“]‘¬“xi“x/ƒtƒŒ[ƒ€j
+//! @return               ˆÚ“®Œã‚ÌŒü‚«iƒ‰ƒWƒAƒ“j
+//---------------------------------------------------------------
+float ObjectPointToDirection(float2 now_pos, float2 goal_pos, float dir, float rot_speed);
+
+//---------------------------------------------------------------
+//! @brief ƒJƒƒ‰‚Ì’â~§Œäiw’è”ÍˆÍŠO‚Å‚ÍƒXƒNƒ[ƒ‹‚µ‚È‚¢j
+//! @param  [in]     pos_x      ‘ÎÛ X À•W
+//! @param  [in]     pos_y      ‘ÎÛ Y À•W
+//! @param  [in]     w          ‘ÎÛ•
+//! @param  [in]     h          ‘ÎÛ‚‚³
+//! @param  [in,out] cam_x      ƒJƒƒ‰ XiQÆ‚ÅXVj
+//! @param  [in,out] cam_y      ƒJƒƒ‰ YiQÆ‚ÅXVj
+//---------------------------------------------------------------
+void CameraStop(float pos_x, float pos_y, float w, float h, float& cam_x, float& cam_y);
+
+//---------------------------------------------------------------
+//! @brief ˆÊ’u‚ğw’èƒGƒŠƒA“à‚É§ŒÀ‚µ‚Ü‚·
+//! @param  [in,out] target_pos  ‘ÎÛˆÊ’uiQÆ‚ÅXVj
+//! @param  [in]     target_w    ‘ÎÛ•
+//! @param  [in]     target_h    ‘ÎÛ‚‚³
+//! @param  [in]     area_w      ƒGƒŠƒA•
+//! @param  [in]     area_h      ƒGƒŠƒA‚‚³
+//---------------------------------------------------------------
+void ClampPositionToArea(float2& target_pos, int target_w, int target_h, float area_w, float area_h);
+
+//---------------------------------------------------------------
+//! @brief “_‚Æ‹éŒ`‚Ì“–‚½‚è”»’èi•‚“®¬”j
+//! @param  [in]     point      ”»’è“_
+//! @param  [in]     pos        ‹éŒ`¶ãˆÊ’u
+//! @param  [in]     size       ‹éŒ`ƒTƒCƒY
+//! @return               “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//---------------------------------------------------------------
+bool CheckPointBoxHitF(const float2& point, const float2& pos, const float2& size);
+
+//---------------------------------------------------------------
+//! @brief “_‚Æ‹éŒ`‚Ì“–‚½‚è”»’èiÀ•Ww’èj
+//! @param  [in]     point_x    “_‚Ì X
+//! @param  [in]     point_y    “_‚Ì Y
+//! @param  [in]     box_x      ‹éŒ`¶ã X
+//! @param  [in]     box_y      ‹éŒ`¶ã Y
+//! @param  [in]     box_w      ‹éŒ`•
+//! @param  [in]     box_h      ‹éŒ`‚
+//! @return               “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//---------------------------------------------------------------
+bool CheckPointBoxHit(float point_x, float point_y, float box_x, float box_y, float box_w, float box_h);
+
+//---------------------------------------------------------------
+//! @brief ‹éŒ`“¯m‚Ì“–‚½‚è”»’è
+//! @param  [in]     x1          ‹éŒ`1‚Ì¶ã X
+//! @param  [in]     y1          ‹éŒ`1‚Ì¶ã Y
+//! @param  [in]     w1          ‹éŒ`1‚Ì•
+//! @param  [in]     h1          ‹éŒ`1‚Ì‚‚³
+//! @param  [in]     x2          ‹éŒ`2‚Ì¶ã X
+//! @param  [in]     y2          ‹éŒ`2‚Ì¶ã Y
+//! @param  [in]     w2          ‹éŒ`2‚Ì•
+//! @param  [in]     h2          ‹éŒ`2‚Ì‚‚³
+//! @return               “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//---------------------------------------------------------------
+bool CheckBoxHit(float x1, float y1, float w1, float h1, float x2, float y2, float w2, float h2);
+
+//---------------------------------------------------------------
+//! @brief ‰~“¯m‚Ì“–‚½‚è”»’è
+//! @param  [in]     x1          ‰~1‚Ì’†S X
+//! @param  [in]     y1          ‰~1‚Ì’†S Y
+//! @param  [in]     r1          ‰~1‚Ì”¼Œa
+//! @param  [in]     x2          ‰~2‚Ì’†S X
+//! @param  [in]     y2          ‰~2‚Ì’†S Y
+//! @param  [in]     r2          ‰~2‚Ì”¼Œa
+//! @return               “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//---------------------------------------------------------------
+bool CheckCircleHit(float x1, float y1, float r1, float x2, float y2, float r2);
+
+//---------------------------------------------------------------
+//! @brief “_‚Æ‰~‚Ì“–‚½‚è”»’è
+//! @param  [in]     point_x    “_‚Ì X
+//! @param  [in]     point_y    “_‚Ì Y
+//! @param  [in]     circle_x    ‰~‚Ì’†S X
+//! @param  [in]     circle_y    ‰~‚Ì’†S Y
+//! @param  [in]     circle_r    ‰~‚Ì”¼Œa
+//! @return               “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//---------------------------------------------------------------
+bool CheckPointCircleHit(float point_x, float point_y, float circle_x, float circle_y, float circle_r);
+
+//---------------------------------------------------------------
+//! @brief ‰~‚ğ•`‰æiXZ•½–Êj
+//! @param  [in]     center     ’†SˆÊ’u
+//! @param  [in]     radius     ”¼Œa
+//! @param  [in]     color      F
+//! @param  [in]     fill       “h‚è‚Â‚Ô‚µƒtƒ‰ƒO
+//---------------------------------------------------------------
+void DrawCircle3D_XZ(float3 center, float radius, int color, bool fill = false);
+
+//---------------------------------------------------------------
+//! @brief ‹éŒ`‚ğ•`‰æiXZ•ûŒüj
+//! @param  [in]     center     ’†SˆÊ’u
+//! @param  [in]     half_w     ”¼•ª‚Ì•
+//! @param  [in]     half_h     ”¼•ª‚Ì‚‚³
+//! @param  [in]     color      F
+//! @param  [in]     fill       “h‚è‚Â‚Ô‚µƒtƒ‰ƒO
+//---------------------------------------------------------------
+void DrawBox3D_XZ(float3 center, float half_w, float half_h, int color, bool fill = false);
+
+//-----------------------------------------------------------
+//! @brief XZ •½–Êã‚Ì‰~“¯m‚Ì“–‚½‚è”»’è‚ğs‚È‚¤
+//! @param  [in] center1  ‰~ 1 ‚Ì’†SˆÊ’u
+//! @param  [in] radius1  ‰~ 1 ‚Ì”¼Œa
+//! @param  [in] center2  ‰~ 2 ‚Ì’†SˆÊ’u
+//! @param  [in] radius2  ‰~ 2 ‚Ì”¼Œa
+//! @return “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//-----------------------------------------------------------
+bool CheckCircleXZHit(float3& center1, float radius1, float3& center2, float radius2);
+
+//-----------------------------------------------------------
+//! @brief ‹…“¯m‚Ì“–‚½‚è”»’è‚ğs‚È‚¤
+//! @param  [in] center1  ‹… 1 ‚Ì’†SˆÊ’u
+//! @param  [in] radius1  ‹… 1 ‚Ì”¼Œa
+//! @param  [in] center2  ‹… 2 ‚Ì’†SˆÊ’u
+//! @param  [in] radius2  ‹… 2 ‚Ì”¼Œa
+//! @return “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//-----------------------------------------------------------
+bool CheckBallHit(float3& center1, float radius1, float3& center2, float radius2);
+
+//-----------------------------------------------------------
+//! @brief 3D ‚Ì AABB “¯m‚Ì“–‚½‚è”»’è‚ğs‚È‚¤
+//! @param  [in] box_pos1  ƒ{ƒbƒNƒX 1 ‚Ì’†SˆÊ’u
+//! @param  [in] box_size1 ƒ{ƒbƒNƒX 1 ‚Ì”¼ƒTƒCƒY
+//! @param  [in] box_pos2  ƒ{ƒbƒNƒX 2 ‚Ì’†SˆÊ’u
+//! @param  [in] box_size2 ƒ{ƒbƒNƒX 2 ‚Ì”¼ƒTƒCƒY
+//! @return “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//-----------------------------------------------------------
+bool CheckBoxHit3D(float3& box_pos1, float3& box_size1, float3& box_pos2, float3& box_size2);
+
+//-----------------------------------------------------------
+//! @brief “_‚Æ 3D ƒ{ƒbƒNƒX‚Ì“–‚½‚è”»’è‚ğs‚È‚¤
+//! @param  [in] point    ”»’è‘ÎÛ‚Ì“_
+//! @param  [in] box_pos  ƒ{ƒbƒNƒX‚Ì’†SˆÊ’u
+//! @param  [in] box_size ƒ{ƒbƒNƒX‚Ì”¼ƒTƒCƒY
+//! @return               “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//-----------------------------------------------------------
+bool CheckPointBoxHit3D(float3& point, float3& box_pos, float3& box_size);
+
+//-----------------------------------------------------------
+//! @brief ‹…‚Æ AABBiƒ{ƒbƒNƒXj‚Ì“–‚½‚è”»’è‚ğs‚È‚¤
+//! @param  [in] ball_pos   ‹…‚Ì’†SˆÊ’u
+//! @param  [in] ball_radius ‹…‚Ì”¼Œa
+//! @param  [in] box_pos    ƒ{ƒbƒNƒX‚Ì’†SˆÊ’u
+//! @param  [in] box_size  ƒ{ƒbƒNƒX‚Ì”¼ƒTƒCƒY
+//! @return               “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//-----------------------------------------------------------
+bool CheckBallBoxHit(float3& ball_pos, float ball_radius, float3& box_pos, float3& box_size);
+
+//-----------------------------------------------------------
+//! @brief ü•ª‚Æ“_‚ÌÅ‹ßÚˆÊ’u‚ğæ“¾‚µ‚Ü‚·i3Dj
+//! @param  [in] line_start  ü•ª‚ÌŠJnˆÊ’u
+//! @param  [in] line_goal   ü•ª‚ÌI—¹ˆÊ’u
+//! @param  [in] point       ”»’è‘ÎÛ‚Ì“_
+//! @return                ü•ªã‚ÌÅ‹ßÚˆÊ’uifloat3j
+//-----------------------------------------------------------
+float3 GetFloat3LinePointNearPosition(float3& line_start, float3& line_goal, float3& point);
+
+//-----------------------------------------------------------
+//! @brief ü•ª‚Æ“_‚ÌÅ‹ßÚ‹——£‚ğ•Ô‚·i3Dj
+//! @param  [in] line_start  ü•ª‚ÌŠJnˆÊ’u
+//! @param  [in] line_goal   ü•ª‚ÌI—¹ˆÊ’u
+//! @param  [in] point       ”»’è‘ÎÛ‚Ì“_
+//! @return                Å‹ßÚ‹——£
+//-----------------------------------------------------------
+float GetFloat3LinePointNearDistance(float3& line_start, float3& line_goal, float3& point);
+
+//-----------------------------------------------------------
+//! @brief ü•ª‚Æ‹…‚Ì“–‚½‚è”»’è‚ğs‚È‚¤i3Dj
+//! @param  [in] line_start  ü•ª‚ÌŠJnˆÊ’u
+//! @param  [in] line_goal   ü•ª‚ÌI—¹ˆÊ’u
+//! @param  [in] ball_pos    ‹…‚Ì’†SˆÊ’u
+//! @param  [in] ball_radius ‹…‚Ì”¼Œa
+//! @return                “–‚½‚Á‚Ä‚¢‚ê‚Î true
+//-----------------------------------------------------------
+bool CheckLineBallHit(float3& line_start, float3& line_goal, float3& ball_pos, float ball_radius);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float2 ‚Ì‹——£‚ğ‹‚ß‚é
+//! @param  [in] pos1  1‚Â–Ú‚ÌÀ•W
+//! @param  [in] pos2  2‚Â–Ú‚ÌÀ•W
+//! @return            2“_ŠÔ‚Ì‹——£
+//! @note              –ß‚è’l‚Í float Œ^
+//-----------------------------------------------------------
+float GetFloat2Distance(float2& pos1, float2& pos2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float2 ‚Ì“àÏ‚ğ‹‚ß‚é
+//! @param  [in] v1  1‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @param  [in] v2  2‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @return          “àÏifloatj
+//-----------------------------------------------------------
+float GetFloat2Dot(float2& v1, float2& v2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float2 ‚ÌŠOÏ‚ğ‹‚ß‚é
+//! @param  [in] v1  1‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @param  [in] v2  2‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @return          ŠOÏiƒXƒJƒ‰[j
+//-----------------------------------------------------------
+float GetFloat2Cross(float2& v1, float2& v2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float3 ‚Ì‹——£‚ğ‹‚ß‚é
+//! @param  [in] pos1  1‚Â–Ú‚ÌÀ•W
+//! @param  [in] pos2  2‚Â–Ú‚ÌÀ•W
+//! @return            2“_ŠÔ‚Ì‹——£ifloatj
+//-----------------------------------------------------------
+float GetFloat3Distance(float3& pos1, float3& pos2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float3 ‚Ì“àÏ‚ğ‹‚ß‚é
+//! @param  [in] v1  1‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @param  [in] v2  2‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @return          “àÏifloatj
+//-----------------------------------------------------------
+float GetFloat3Dot(float3& v1, float3& v2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float3 ‚ÌŠOÏ‚ğ‹‚ß‚é
+//! @param  [in] v1  1‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @param  [in] v2  2‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @return          ŠOÏifloat3j
+//-----------------------------------------------------------
+float3 GetFloat3Cross(float3& v1, float3& v2);
+
+//-----------------------------------------------------------
+//! @brief float3 ‚ğ MATRIX ‚Å•ÏŠ·‚µ‚½ float3 ‚ğ•Ô‚·
+//! @param  [in] v    •ÏŠ·‚·‚éƒxƒNƒgƒ‹
+//! @param  [in] mat  •ÏŠ·s—ñ
+//! @return          •ÏŠ·Œã‚Ì float3
+//-----------------------------------------------------------
+float3 GetFloat3VTransform(float3& v, MATRIX& mat);
+
+//-----------------------------------------------------------
+//! @brief •½–Êã‚Ì‰~“¯m‚Ì“–‚½‚è”»’è‚ğs‚È‚¤ifloat2 ”Åj
+//-----------------------------------------------------------
+bool CheckCircleHit(float2& center1, float radius1, float2& center2, float radius2);
+
+//-----------------------------------------------------------
+//! @brief “_‚Æ‰~‚Ì“–‚½‚è”»’è‚ğs‚È‚¤ifloat2 ”Åj
+//-----------------------------------------------------------
+bool CheckPointCircleHit(float2& point, float2& center, float radius);
+
+//-----------------------------------------------------------
+//! @brief lŠp“¯m‚Ì“–‚½‚è”»’è‚ğs‚È‚¤ifloat2 ”Åj
+//-----------------------------------------------------------
+bool CheckBoxHit(float2& box_pos1, float2& box_size1, float2& box_pos2, float2& box_size2);
+
+//-----------------------------------------------------------
+//! @brief “_‚ÆlŠp‚Ì“–‚½‚è”»’è‚ğs‚È‚¤ifloat2 ”Åj
+//-----------------------------------------------------------
+bool CheckPointBoxHit(float2& point, float2& box_pos, float2& box_size);
+
+//-----------------------------------------------------------
+//! @brief ‰~‚ÆlŠp‚Ì“–‚½‚è”»’è‚ğs‚È‚¤ifloat2 ”Åj
+//-----------------------------------------------------------
+bool CheckCircleBoxHit(float2& circle, float radius, float2& box_pos, float2& box_size);
+
+//-----------------------------------------------------------
+//! @brief “_‚ÆOŠpŒ`‚Ì“–‚½‚è”»’è‚ğs‚È‚¤i2Dj
+//-----------------------------------------------------------
+bool CheckPointTriangleHit(float2& point, float2& triangle_pos1, float2& triangle_pos2, float2& triangle_pos3);
+
+//-----------------------------------------------------------
+//! @brief ü•ª‚Æ“_‚ÌÅ‹ßÚˆÊ’u‚ğæ“¾‚µ‚Ü‚·i2Dj
+//-----------------------------------------------------------
+float2 GetFloat2LinePointNearPosition(float2& line_start, float2& line_goal, float2& point);
+
+//-----------------------------------------------------------
+//! @brief ü•ª‚Æ“_‚ÌÅ‹ßÚ‹——£‚ğ•Ô‚·i2Dj
+//-----------------------------------------------------------
+float GetFloat2LinePointNearDistance(float2& line_start, float2& line_goal, float2& point);
+
+//-----------------------------------------------------------
+//! @brief ü•ª‚Æ‰~‚Ì“–‚½‚è”»’è‚ğs‚È‚¤i2Dj
+//-----------------------------------------------------------
+bool CheckLineCircleHit(float2& line_start, float2& line_goal, float2& circle_pos, float circle_radius);
+
+//-----------------------------------------------------------
+//! @brief 2 “_ŠÔ‚Ì‹——£‚ğ•Ô‚·
+//! @param  [in] x1   “_1 ‚Ì X À•W
+//! @param  [in] y1   “_1 ‚Ì Y À•W
+//! @param  [in] x2   “_2 ‚Ì X À•W
+//! @param  [in] y2   “_2 ‚Ì Y À•W
+//! @return          2 “_ŠÔ‚Ì‹——£ifloatj
+//-----------------------------------------------------------
+float GetDistance(float x1, float y1, float x2, float y2);
+
+//-----------------------------------------------------------
+//! @brief lŠp“¯m‚Ì“–‚½‚è”»’è‚ğs‚È‚¤ifloat ”Åj
+//-----------------------------------------------------------
+bool CheckBoxHit(float x1, float y1, float w1, float h1, float x2, float y2, float w2, float h2);
+
+//-----------------------------------------------------------
+//! @brief “_‚ÆlŠp‚Ì“–‚½‚è”»’è‚ğs‚È‚¤ifloat ”Åj
+//-----------------------------------------------------------
+bool CheckPointBoxHit(float point_x, float point_y, float box_x, float box_y, float box_w, float box_h);
+
+//-----------------------------------------------------------
+//! @brief ‰~‚ÆlŠp‚Ì“–‚½‚è”»’è‚ğs‚¤ifloat ”Åj
+//-----------------------------------------------------------
+bool CheckCircleBoxHit(float circle_x, float circle_y, float circle_r, float box_x, float box_y, float box_w, float box_h);
+
+//---------------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float2 ‚Ì‹——£‚ğ‹‚ß‚é
+//! @param  [in]     pos1       ˆÊ’u1
+//! @param  [in]     pos2       ˆÊ’u2
+//! @return               ‹——£
+//---------------------------------------------------------------
+float GetFloat2Distance(float2& pos1, float2& pos2);
+
+//---------------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float2 ‚Ì“àÏ‚ğ‹‚ß‚é
+//! @param  [in]     v1        ƒxƒNƒgƒ‹1
+//! @param  [in]     v2        ƒxƒNƒgƒ‹2
+//! @return               “àÏ
+//---------------------------------------------------------------
+float GetFloat2Dot(float2& v1, float2& v2);
+
+//---------------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float2 ‚ÌŠOÏ‚ğ‹‚ß‚é
+//! @param  [in]     v1        ƒxƒNƒgƒ‹1
+//! @param  [in]     v2        ƒxƒNƒgƒ‹2
+//! @return               ŠOÏ
+//---------------------------------------------------------------
+float GetFloat2Cross(float2& v1, float2& v2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float3 ‚Ì‹——£‚ğ‹‚ß‚é
+//! @param  [in] pos1  1‚Â–Ú‚ÌÀ•W
+//! @param  [in] pos2  2‚Â–Ú‚ÌÀ•W
+//! @return            2“_ŠÔ‚Ì‹——£
+//-----------------------------------------------------------
+float GetFloat3Distance(float3& pos1, float3& pos2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float3 ‚Ì“àÏ‚ğ‹‚ß‚é
+//! @param  [in] v1  1‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @param  [in] v2  2‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @return          “àÏ
+//-----------------------------------------------------------
+float GetFloat3Dot(float3& v1, float3& v2);
+
+//-----------------------------------------------------------
+//! @brief ‚Q‚Â‚Ì float3 ‚ÌŠOÏ‚ğ‹‚ß‚é
+//! @param  [in] v1  1‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @param  [in] v2  2‚Â–Ú‚ÌƒxƒNƒgƒ‹
+//! @return          ŠOÏiƒxƒNƒgƒ‹j
+//-----------------------------------------------------------
+float3 GetFloat3Cross(float3& v1, float3& v2);
+
+//-----------------------------------------------------------
+//! @brief float3 ‚ğ MATRIX ‚Å•ÏŠ·‚µ‚½ float3 ‚ğ•Ô‚·
+//! @param  [in] v    •ÏŠ·‚·‚éƒxƒNƒgƒ‹
+//! @param  [in] mat  •ÏŠ·s—ñ
+//! @return          •ÏŠ·Œã‚Ì float3
+//-----------------------------------------------------------
+float3 GetFloat3VTransform(float3& v, MATRIX& mat);
+
+//---------------------------------------------------------------
+//! @brief “x‚ğƒ‰ƒWƒAƒ“‚É•ÏŠ·
+//! @param  [in]     degree     “x
+//! @return               ƒ‰ƒWƒAƒ“
+//---------------------------------------------------------------
+float TORADIAN(float degree);
+
+//---------------------------------------------------------------
+//! ƒ‰ƒWƒAƒ“‚ğ“x‚É•ÏŠ·
+//! @param  [in]     radian     ƒ‰ƒWƒAƒ“
+//! @return               “x
+//---------------------------------------------------------------
+float TODEGREE(float radian);
+
+//---------------------------------------------------------------
+//! @brief ³‹K‰»
+//! @param  [in]     vec        ³‹K‰»‚·‚éƒxƒNƒgƒ‹
+//! @return               ³‹K‰»Œã‚ÌƒxƒNƒgƒ‹
+//---------------------------------------------------------------
+float2 Normalize(const float2& vec);
+
+//---------------------------------------------------------------
+//! @brief ³‹K‰»
+//! @param  [in]     vec        ³‹K‰»‚·‚éƒxƒNƒgƒ‹
+//! @return               ³‹K‰»Œã‚ÌƒxƒNƒgƒ‹
+//---------------------------------------------------------------
+float3 Normalize(const float3& vec);
+
+//---------------------------------------------------------------
+//! ‰ñ“]‚É‰ˆ‚Á‚½’·‚³icosj‚ğæ“¾
+//! @param  [in]     rot        ‰ñ“]iƒ‰ƒWƒAƒ“j
+//! @return               cos(rot)
+//---------------------------------------------------------------
+float GetLengthAlongRotation(float rot);
+
+//---------------------------------------------------------------
+//! ‰ñ“]‚É‚’¼‚È’·‚³isinj‚ğæ“¾
+//! @param  [in]     rot        ‰ñ“]iƒ‰ƒWƒAƒ“j
+//! @return               sin(rot)
+//---------------------------------------------------------------
+float GetLengthOppositeRotation(float rot);
+
+}    // namespace MyLibrary

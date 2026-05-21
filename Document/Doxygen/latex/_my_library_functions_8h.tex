@@ -1,0 +1,395 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Reo\+Engine/src/\+My\+Library\+Functions.h ファイル}
+\hypertarget{_my_library_functions_8h}{}\label{_my_library_functions_8h}\index{C:/Users/user/Documents/ReoEngine/src/MyLibraryFunctions.h@{C:/Users/user/Documents/ReoEngine/src/MyLibraryFunctions.h}}
+
+
+ユーティリティ関数群の宣言  
+
+
+{\ttfamily \#include "{}Dx\+Main.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$numbers$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+My\+Library\+Functions.\+h の依存先関係図\+:
+% FIG 0
+\doxysubsubsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{_functions_8h_a8a2adf07bf8824fea2d1bac762beeba5}{My\+Library\+::\+Convert\+Milli\+To\+Sec}} (int milli)
+\begin{DoxyCompactList}\small\item\em ミリ秒を秒に変換 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_functions_8h_a11ad2cb307b33ed8f6734f71531495ff}{My\+Library\+::\+Convert\+Milli\+To\+Minute}} (int milli)
+\begin{DoxyCompactList}\small\item\em ミリ秒を分に変換 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{_functions_8h_a34bf399b028db4d522ad95b8e8f60fa2}{My\+Library\+::\+Get\+File\+Extension}} (const char \texorpdfstring{$\ast$}{*}filepath)
+\begin{DoxyCompactList}\small\item\em ファイルパスから拡張子を取得 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_functions_8h_ade01db58c028b2dbc9ff91788346caf2}{My\+Library\+::\+Object\+Point\+To\+Direction}} (float2 now\+\_\+pos, float2 goal\+\_\+pos, float dir, float rot\+\_\+speed)
+\begin{DoxyCompactList}\small\item\em オブジェクトの向き（ラジアン）を求める（回転補間あり） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_functions_8h_ad394290ecb9f00771408de37e0f6af0b}{My\+Library\+::\+Camera\+Stop}} (float pos\+\_\+x, float pos\+\_\+y, float w, float h, float \&cam\+\_\+x, float \&cam\+\_\+y)
+\begin{DoxyCompactList}\small\item\em カメラの停止制御（指定範囲外ではスクロールしない） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_functions_8h_aac872ed90dc7fab7fdec7b6ef6f76f13}{My\+Library\+::\+Clamp\+Position\+To\+Area}} (float2 \&target\+\_\+pos, int target\+\_\+w, int target\+\_\+h, float area\+\_\+w, float area\+\_\+h)
+\begin{DoxyCompactList}\small\item\em 位置を指定エリア内に制限します \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_functions_8h_ab3753d3b1ab4ae621ad66acc14ed8fd7}{My\+Library\+::\+Check\+Point\+Box\+HitF}} (const float2 \&point, const float2 \&pos, const float2 \&size)
+\begin{DoxyCompactList}\small\item\em 点と矩形の当たり判定（浮動小数） \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_functions_8h_a6b8437bd2f41fb636c2d941fd96fd680}{My\+Library\+::\+Check\+Point\+Box\+Hit}} (float point\+\_\+x, float point\+\_\+y, float box\+\_\+x, float box\+\_\+y, float box\+\_\+w, float box\+\_\+h)
+\begin{DoxyCompactList}\small\item\em 点と矩形の当たり判定（座標指定） \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_functions_8h_ad4fa23e98022b95b096707154e0eec8f}{My\+Library\+::\+Check\+Box\+Hit}} (float x1, float y1, float w1, float h1, float x2, float y2, float w2, float h2)
+\begin{DoxyCompactList}\small\item\em 矩形同士の当たり判定 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_functions_8h_adb8075e18371aa759f6715c6af09a4f8}{My\+Library\+::\+Check\+Circle\+Hit}} (float x1, float y1, float r1, float x2, float y2, float r2)
+\begin{DoxyCompactList}\small\item\em 円同士の当たり判定 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_functions_8h_a500b9529d523340b6fc5a488afd60370}{My\+Library\+::\+Check\+Point\+Circle\+Hit}} (float point\+\_\+x, float point\+\_\+y, float circle\+\_\+x, float circle\+\_\+y, float circle\+\_\+r)
+\begin{DoxyCompactList}\small\item\em 点と円の当たり判定 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_functions_8h_ae6c02d71f2f1f908f26f6c0e8d0498eb}{My\+Library\+::\+TORADIAN}} (float degree)
+\begin{DoxyCompactList}\small\item\em 度をラジアンに変換 \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_functions_8h_a87e76d507513413bb000cadf62cbbbe0}{My\+Library\+::\+TODEGREE}} (float radian)
+\item 
+float \mbox{\hyperlink{_functions_8h_aef06017594cd1c4ae4244efdea9fb3c1}{My\+Library\+::\+Get\+Length\+Along\+Rotation}} (float rot)
+\item 
+float \mbox{\hyperlink{_functions_8h_a6c257008439735d19ef3e2ff73353997}{My\+Library\+::\+Get\+Length\+Opposite\+Rotation}} (float rot)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_my_library_functions_8h_a41dda0db96ce9ec22500157f501f10ee}\label{_my_library_functions_8h_a41dda0db96ce9ec22500157f501f10ee} 
+constexpr int {\bfseries My\+Library\+::\+MS\+\_\+\+PER\+\_\+\+SEC} = 1000
+\begin{DoxyCompactList}\small\item\em 1秒あたりのミリ秒 \end{DoxyCompactList}\item 
+\Hypertarget{_my_library_functions_8h_a9ced92dad6d716141d17b013dac70601}\label{_my_library_functions_8h_a9ced92dad6d716141d17b013dac70601} 
+constexpr int {\bfseries My\+Library\+::\+MS\+\_\+\+PER\+\_\+\+MIN} = 60000
+\begin{DoxyCompactList}\small\item\em 1分あたりのミリ秒 \end{DoxyCompactList}\item 
+\Hypertarget{_my_library_functions_8h_a1a5b22be05197d19c65b34b527ad7fb8}\label{_my_library_functions_8h_a1a5b22be05197d19c65b34b527ad7fb8} 
+constexpr float {\bfseries My\+Library\+::\+PI} = 3.\+14159265358979323846f
+\begin{DoxyCompactList}\small\item\em 円周率 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+ユーティリティ関数群の宣言 
+
+
+
+\label{doc-func-members}
+\Hypertarget{_my_library_functions_8h_doc-func-members}
+\doxysubsection{関数詳解}
+\Hypertarget{_functions_8h_ad394290ecb9f00771408de37e0f6af0b}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!CameraStop@{CameraStop}}
+\index{CameraStop@{CameraStop}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CameraStop()}{CameraStop()}}
+{\footnotesize\ttfamily \label{_functions_8h_ad394290ecb9f00771408de37e0f6af0b} 
+void My\+Library\+::\+Camera\+Stop (\begin{DoxyParamCaption}\item[{float}]{pos\+\_\+x}{, }\item[{float}]{pos\+\_\+y}{, }\item[{float}]{w}{, }\item[{float}]{h}{, }\item[{float \&}]{cam\+\_\+x}{, }\item[{float \&}]{cam\+\_\+y}{}\end{DoxyParamCaption})}
+
+
+
+カメラの停止制御（指定範囲外ではスクロールしない） 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em pos\+\_\+x} & 対象 X 座標 \\
+\hline
+\mbox{\texttt{in}}  & {\em pos\+\_\+y} & 対象 Y 座標 \\
+\hline
+\mbox{\texttt{in}}  & {\em w} & 対象幅 \\
+\hline
+\mbox{\texttt{in}}  & {\em h} & 対象高さ \\
+\hline
+\mbox{\texttt{in,out}}  & {\em cam\+\_\+x} & カメラ X（参照で更新） \\
+\hline
+\mbox{\texttt{in,out}}  & {\em cam\+\_\+y} & カメラ Y（参照で更新） \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_functions_8h_ad4fa23e98022b95b096707154e0eec8f}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!CheckBoxHit@{CheckBoxHit}}
+\index{CheckBoxHit@{CheckBoxHit}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CheckBoxHit()}{CheckBoxHit()}}
+{\footnotesize\ttfamily \label{_functions_8h_ad4fa23e98022b95b096707154e0eec8f} 
+bool My\+Library\+::\+Check\+Box\+Hit (\begin{DoxyParamCaption}\item[{float}]{x1}{, }\item[{float}]{y1}{, }\item[{float}]{w1}{, }\item[{float}]{h1}{, }\item[{float}]{x2}{, }\item[{float}]{y2}{, }\item[{float}]{w2}{, }\item[{float}]{h2}{}\end{DoxyParamCaption})}
+
+
+
+矩形同士の当たり判定 
+
+四角同士の当たり判定を行なう（float 版）
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em x1} & 矩形1の左上 X \\
+\hline
+\mbox{\texttt{in}}  & {\em y1} & 矩形1の左上 Y \\
+\hline
+\mbox{\texttt{in}}  & {\em w1} & 矩形1の幅 \\
+\hline
+\mbox{\texttt{in}}  & {\em h1} & 矩形1の高さ \\
+\hline
+\mbox{\texttt{in}}  & {\em x2} & 矩形2の左上 X \\
+\hline
+\mbox{\texttt{in}}  & {\em y2} & 矩形2の左上 Y \\
+\hline
+\mbox{\texttt{in}}  & {\em w2} & 矩形2の幅 \\
+\hline
+\mbox{\texttt{in}}  & {\em h2} & 矩形2の高さ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+当たっていれば true 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_adb8075e18371aa759f6715c6af09a4f8}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!CheckCircleHit@{CheckCircleHit}}
+\index{CheckCircleHit@{CheckCircleHit}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CheckCircleHit()}{CheckCircleHit()}}
+{\footnotesize\ttfamily \label{_functions_8h_adb8075e18371aa759f6715c6af09a4f8} 
+bool My\+Library\+::\+Check\+Circle\+Hit (\begin{DoxyParamCaption}\item[{float}]{x1}{, }\item[{float}]{y1}{, }\item[{float}]{r1}{, }\item[{float}]{x2}{, }\item[{float}]{y2}{, }\item[{float}]{r2}{}\end{DoxyParamCaption})}
+
+
+
+円同士の当たり判定 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em x1} & 円1の中心 X \\
+\hline
+\mbox{\texttt{in}}  & {\em y1} & 円1の中心 Y \\
+\hline
+\mbox{\texttt{in}}  & {\em r1} & 円1の半径 \\
+\hline
+\mbox{\texttt{in}}  & {\em x2} & 円2の中心 X \\
+\hline
+\mbox{\texttt{in}}  & {\em y2} & 円2の中心 Y \\
+\hline
+\mbox{\texttt{in}}  & {\em r2} & 円2の半径 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+当たっていれば true 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_a6b8437bd2f41fb636c2d941fd96fd680}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!CheckPointBoxHit@{CheckPointBoxHit}}
+\index{CheckPointBoxHit@{CheckPointBoxHit}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CheckPointBoxHit()}{CheckPointBoxHit()}}
+{\footnotesize\ttfamily \label{_functions_8h_a6b8437bd2f41fb636c2d941fd96fd680} 
+bool My\+Library\+::\+Check\+Point\+Box\+Hit (\begin{DoxyParamCaption}\item[{float}]{point\+\_\+x}{, }\item[{float}]{point\+\_\+y}{, }\item[{float}]{box\+\_\+x}{, }\item[{float}]{box\+\_\+y}{, }\item[{float}]{box\+\_\+w}{, }\item[{float}]{box\+\_\+h}{}\end{DoxyParamCaption})}
+
+
+
+点と矩形の当たり判定（座標指定） 
+
+点と四角の当たり判定を行なう（float 版）
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em point\+\_\+x} & 点の X \\
+\hline
+\mbox{\texttt{in}}  & {\em point\+\_\+y} & 点の Y \\
+\hline
+\mbox{\texttt{in}}  & {\em box\+\_\+x} & 矩形左上 X \\
+\hline
+\mbox{\texttt{in}}  & {\em box\+\_\+y} & 矩形左上 Y \\
+\hline
+\mbox{\texttt{in}}  & {\em box\+\_\+w} & 矩形幅 \\
+\hline
+\mbox{\texttt{in}}  & {\em box\+\_\+h} & 矩形高 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+当たっていれば true 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_ab3753d3b1ab4ae621ad66acc14ed8fd7}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!CheckPointBoxHitF@{CheckPointBoxHitF}}
+\index{CheckPointBoxHitF@{CheckPointBoxHitF}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CheckPointBoxHitF()}{CheckPointBoxHitF()}}
+{\footnotesize\ttfamily \label{_functions_8h_ab3753d3b1ab4ae621ad66acc14ed8fd7} 
+bool My\+Library\+::\+Check\+Point\+Box\+HitF (\begin{DoxyParamCaption}\item[{const float2 \&}]{point}{, }\item[{const float2 \&}]{pos}{, }\item[{const float2 \&}]{size}{}\end{DoxyParamCaption})}
+
+
+
+点と矩形の当たり判定（浮動小数） 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em point} & 判定点 \\
+\hline
+\mbox{\texttt{in}}  & {\em pos} & 矩形左上位置 \\
+\hline
+\mbox{\texttt{in}}  & {\em size} & 矩形サイズ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+当たっていれば true 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_a500b9529d523340b6fc5a488afd60370}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!CheckPointCircleHit@{CheckPointCircleHit}}
+\index{CheckPointCircleHit@{CheckPointCircleHit}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{CheckPointCircleHit()}{CheckPointCircleHit()}}
+{\footnotesize\ttfamily \label{_functions_8h_a500b9529d523340b6fc5a488afd60370} 
+bool My\+Library\+::\+Check\+Point\+Circle\+Hit (\begin{DoxyParamCaption}\item[{float}]{point\+\_\+x}{, }\item[{float}]{point\+\_\+y}{, }\item[{float}]{circle\+\_\+x}{, }\item[{float}]{circle\+\_\+y}{, }\item[{float}]{circle\+\_\+r}{}\end{DoxyParamCaption})}
+
+
+
+点と円の当たり判定 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em point\+\_\+x} & 点の X \\
+\hline
+\mbox{\texttt{in}}  & {\em point\+\_\+y} & 点の Y \\
+\hline
+\mbox{\texttt{in}}  & {\em circle\+\_\+x} & 円の中心 X \\
+\hline
+\mbox{\texttt{in}}  & {\em circle\+\_\+y} & 円の中心 Y \\
+\hline
+\mbox{\texttt{in}}  & {\em circle\+\_\+r} & 円の半径 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+当たっていれば true 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_aac872ed90dc7fab7fdec7b6ef6f76f13}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!ClampPositionToArea@{ClampPositionToArea}}
+\index{ClampPositionToArea@{ClampPositionToArea}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ClampPositionToArea()}{ClampPositionToArea()}}
+{\footnotesize\ttfamily \label{_functions_8h_aac872ed90dc7fab7fdec7b6ef6f76f13} 
+void My\+Library\+::\+Clamp\+Position\+To\+Area (\begin{DoxyParamCaption}\item[{float2 \&}]{target\+\_\+pos}{, }\item[{int}]{target\+\_\+w}{, }\item[{int}]{target\+\_\+h}{, }\item[{float}]{area\+\_\+w}{, }\item[{float}]{area\+\_\+h}{}\end{DoxyParamCaption})}
+
+
+
+位置を指定エリア内に制限します 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in,out}}  & {\em target\+\_\+pos} & 対象位置（参照で更新） \\
+\hline
+\mbox{\texttt{in}}  & {\em target\+\_\+w} & 対象幅 \\
+\hline
+\mbox{\texttt{in}}  & {\em target\+\_\+h} & 対象高さ \\
+\hline
+\mbox{\texttt{in}}  & {\em area\+\_\+w} & エリア幅 \\
+\hline
+\mbox{\texttt{in}}  & {\em area\+\_\+h} & エリア高さ \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_functions_8h_a11ad2cb307b33ed8f6734f71531495ff}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!ConvertMilliToMinute@{ConvertMilliToMinute}}
+\index{ConvertMilliToMinute@{ConvertMilliToMinute}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ConvertMilliToMinute()}{ConvertMilliToMinute()}}
+{\footnotesize\ttfamily \label{_functions_8h_a11ad2cb307b33ed8f6734f71531495ff} 
+float My\+Library\+::\+Convert\+Milli\+To\+Minute (\begin{DoxyParamCaption}\item[{int}]{milli}{}\end{DoxyParamCaption})}
+
+
+
+ミリ秒を分に変換 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em milli} & ミリ秒 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+分表記の浮動小数点値 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_a8a2adf07bf8824fea2d1bac762beeba5}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!ConvertMilliToSec@{ConvertMilliToSec}}
+\index{ConvertMilliToSec@{ConvertMilliToSec}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ConvertMilliToSec()}{ConvertMilliToSec()}}
+{\footnotesize\ttfamily \label{_functions_8h_a8a2adf07bf8824fea2d1bac762beeba5} 
+float My\+Library\+::\+Convert\+Milli\+To\+Sec (\begin{DoxyParamCaption}\item[{int}]{milli}{}\end{DoxyParamCaption})}
+
+
+
+ミリ秒を秒に変換 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em milli} & ミリ秒 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+秒表記の浮動小数点値 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_a34bf399b028db4d522ad95b8e8f60fa2}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!GetFileExtension@{GetFileExtension}}
+\index{GetFileExtension@{GetFileExtension}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{GetFileExtension()}{GetFileExtension()}}
+{\footnotesize\ttfamily \label{_functions_8h_a34bf399b028db4d522ad95b8e8f60fa2} 
+std\+::string My\+Library\+::\+Get\+File\+Extension (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filepath}{}\end{DoxyParamCaption})}
+
+
+
+ファイルパスから拡張子を取得 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em filepath} & ファイルパス（nullptr可） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+拡張子文字列（見つからない場合は空文字） 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_aef06017594cd1c4ae4244efdea9fb3c1}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!GetLengthAlongRotation@{GetLengthAlongRotation}}
+\index{GetLengthAlongRotation@{GetLengthAlongRotation}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{GetLengthAlongRotation()}{GetLengthAlongRotation()}}
+{\footnotesize\ttfamily \label{_functions_8h_aef06017594cd1c4ae4244efdea9fb3c1} 
+float My\+Library\+::\+Get\+Length\+Along\+Rotation (\begin{DoxyParamCaption}\item[{float}]{rot}{}\end{DoxyParamCaption})}
+
+回転に沿った長さ（cos）を取得 
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em rot} & 回転（ラジアン） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+cos(rot) 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_a6c257008439735d19ef3e2ff73353997}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!GetLengthOppositeRotation@{GetLengthOppositeRotation}}
+\index{GetLengthOppositeRotation@{GetLengthOppositeRotation}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{GetLengthOppositeRotation()}{GetLengthOppositeRotation()}}
+{\footnotesize\ttfamily \label{_functions_8h_a6c257008439735d19ef3e2ff73353997} 
+float My\+Library\+::\+Get\+Length\+Opposite\+Rotation (\begin{DoxyParamCaption}\item[{float}]{rot}{}\end{DoxyParamCaption})}
+
+回転に垂直な長さ（sin）を取得 
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em rot} & 回転（ラジアン） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+sin(rot) 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_ade01db58c028b2dbc9ff91788346caf2}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!ObjectPointToDirection@{ObjectPointToDirection}}
+\index{ObjectPointToDirection@{ObjectPointToDirection}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ObjectPointToDirection()}{ObjectPointToDirection()}}
+{\footnotesize\ttfamily \label{_functions_8h_ade01db58c028b2dbc9ff91788346caf2} 
+float My\+Library\+::\+Object\+Point\+To\+Direction (\begin{DoxyParamCaption}\item[{float2}]{now\+\_\+pos}{, }\item[{float2}]{goal\+\_\+pos}{, }\item[{float}]{dir}{, }\item[{float}]{rot\+\_\+speed}{}\end{DoxyParamCaption})}
+
+
+
+オブジェクトの向き（ラジアン）を求める（回転補間あり） 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em now\+\_\+pos} & 現在位置 \\
+\hline
+\mbox{\texttt{in}}  & {\em goal\+\_\+pos} & 目標位置 \\
+\hline
+\mbox{\texttt{in}}  & {\em dir} & 現在の角度（ラジアン） \\
+\hline
+\mbox{\texttt{in}}  & {\em rot\+\_\+speed} & 回転速度（度/フレーム） \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+移動後の向き（ラジアン） 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_a87e76d507513413bb000cadf62cbbbe0}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!TODEGREE@{TODEGREE}}
+\index{TODEGREE@{TODEGREE}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{TODEGREE()}{TODEGREE()}}
+{\footnotesize\ttfamily \label{_functions_8h_a87e76d507513413bb000cadf62cbbbe0} 
+float My\+Library\+::\+TODEGREE (\begin{DoxyParamCaption}\item[{float}]{radian}{}\end{DoxyParamCaption})}
+
+ラジアンを度に変換 
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em radian} & ラジアン \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+度 
+\end{DoxyReturn}
+\Hypertarget{_functions_8h_ae6c02d71f2f1f908f26f6c0e8d0498eb}\index{MyLibraryFunctions.h@{MyLibraryFunctions.h}!TORADIAN@{TORADIAN}}
+\index{TORADIAN@{TORADIAN}!MyLibraryFunctions.h@{MyLibraryFunctions.h}}
+\doxysubsubsection{\texorpdfstring{TORADIAN()}{TORADIAN()}}
+{\footnotesize\ttfamily \label{_functions_8h_ae6c02d71f2f1f908f26f6c0e8d0498eb} 
+float My\+Library\+::\+TORADIAN (\begin{DoxyParamCaption}\item[{float}]{degree}{}\end{DoxyParamCaption})}
+
+
+
+度をラジアンに変換 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em degree} & 度 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+ラジアン 
+\end{DoxyReturn}

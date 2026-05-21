@@ -1,0 +1,71 @@
+\doxysection{Scene\+::Game\+Scene クラス}
+\hypertarget{class_scene_1_1_game_scene}{}\label{class_scene_1_1_game_scene}\index{Scene::GameScene@{Scene::GameScene}}
+
+
+ゲーム本編を管理するシーンクラス  
+
+
+
+
+{\ttfamily \#include $<$Game\+Scene.\+h$>$}
+
+
+
+Scene\+::Game\+Scene の継承関係図\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_scene_1_1_game_scene__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Scene\+::Game\+Scene 連携図\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_scene_1_1_game_scene__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{その他の継承メンバ}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene_1_1_scene_base}{Scene\+::\+Scene\+Base}} に属する継承公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a29cedff7b1f1283cea375d8ed8bad9bd}{Init}} ()
+\begin{DoxyCompactList}\small\item\em シーン初期化 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_afcbc5b70ee53f126dd68a701d31d3497}{Update}} ()
+\begin{DoxyCompactList}\small\item\em シーン更新 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a31db66e612b6ec093d188e592b930e43}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em シーン描画 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a30812e9f8af495658f635c3f196a242f}{End}} ()
+\begin{DoxyCompactList}\small\item\em シーン終了処理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene_1_1_scene_base}{Scene\+::\+Scene\+Base}} に属する継承限定公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_a457f6f8e0403169a5cd25c88cb22bb48}{Add\+Object}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$ obj)
+\begin{DoxyCompactList}\small\item\em オブジェクトを追加 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_scene_1_1_scene_base_a49a30f1c807dba7f45f37858255b7065}{Add\+Object\+Set\+Name}} (const std\+::string \&obj\+\_\+name)
+\begin{DoxyCompactList}\small\item\em オブジェクト追加 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_scene_1_1_scene_base_aa03d0c19e1187e6a4084e79f5bd1bc13}{Get\+Scene\+Object}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクト取得 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_ab53511392eec055bf9e2fa526c4528ee}{Object\+Init}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの初期化呼び出し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_a3b3515eb4d27ba994d4567ed09beda82}{Object\+Update}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの更新呼び出し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_a533e3c4fe53e9f4d5f610623bb1e24e8}{Object\+Draw}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの描画呼び出し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_ac3b25ef760864deaed361a3caeb2f1be}{Object\+End}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの終了呼び出し \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{基底クラス \mbox{\hyperlink{class_scene_1_1_scene_base}{Scene\+::\+Scene\+Base}} に属する継承限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$ $>$ \mbox{\hyperlink{class_scene_1_1_scene_base_ac8937ecd828f30bcff4fb62402c50cff}{m\+\_\+scene\+\_\+objects}}
+\begin{DoxyCompactList}\small\item\em シーンが保持するオブジェクト \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+ゲーム本編を管理するシーンクラス 
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/user/\+Documents/\+Reo\+Engine/src/\mbox{\hyperlink{_game_scene_8h}{Game\+Scene.\+h}}\end{DoxyCompactItemize}

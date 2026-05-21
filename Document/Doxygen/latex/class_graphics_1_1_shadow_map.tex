@@ -1,0 +1,86 @@
+\doxysection{Graphics\+::Shadow\+Map クラス}
+\hypertarget{class_graphics_1_1_shadow_map}{}\label{class_graphics_1_1_shadow_map}\index{Graphics::ShadowMap@{Graphics::ShadowMap}}
+
+
+シャドウマップの管理クラス  
+
+
+
+
+{\ttfamily \#include $<$Shadow\+Map.\+h$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graphics_1_1_shadow_map_a8cca9204f01ed28ff043dd48fc210f5a}{Shadow\+Map}} (\mbox{\hyperlink{class_graphics_1_1_render_target_manager}{Render\+Target\+Manager}} \&manager, const std\+::string \&name, int width, int height)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_1_1_shadow_map_a3f0303b9e5372689f7f74a75196292ea}\label{class_graphics_1_1_shadow_map_a3f0303b9e5372689f7f74a75196292ea} 
+{\bfseries ‾\+Shadow\+Map} ()
+\begin{DoxyCompactList}\small\item\em デストラクタ \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_1_1_shadow_map_adcf4b4120203bf819b175d8d11d00387}\label{class_graphics_1_1_shadow_map_adcf4b4120203bf819b175d8d11d00387} 
+void {\bfseries Begin} ()
+\begin{DoxyCompactList}\small\item\em キャプチャ開始（この呼び出し以降の描画はシャドウターゲットへ行われる） \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_1_1_shadow_map_a223a3b4626abd85ba642b2b9463a9f7d}\label{class_graphics_1_1_shadow_map_a223a3b4626abd85ba642b2b9463a9f7d} 
+void {\bfseries End} ()
+\begin{DoxyCompactList}\small\item\em キャプチャ終了（描画先をスクリーンへ戻す） \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_1_1_shadow_map_a8009a29902cce31683217e28ec4d13af}{Present}} (int x=0, int y=0)
+\begin{DoxyCompactList}\small\item\em シャドウマップを画面に描画 \end{DoxyCompactList}\item 
+\Hypertarget{class_graphics_1_1_shadow_map_ae5fefc7061df8799402679208ae40ed0}\label{class_graphics_1_1_shadow_map_ae5fefc7061df8799402679208ae40ed0} 
+int {\bfseries Get\+Handle} () const
+\begin{DoxyCompactList}\small\item\em 内部ハンドル取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+シャドウマップの管理クラス 
+
+\label{doc-constructors}
+\Hypertarget{class_graphics_1_1_shadow_map_doc-constructors}
+\doxysubsection{構築子と解体子}
+\Hypertarget{class_graphics_1_1_shadow_map_a8cca9204f01ed28ff043dd48fc210f5a}\index{Graphics::ShadowMap@{Graphics::ShadowMap}!ShadowMap@{ShadowMap}}
+\index{ShadowMap@{ShadowMap}!Graphics::ShadowMap@{Graphics::ShadowMap}}
+\doxysubsubsection{\texorpdfstring{ShadowMap()}{ShadowMap()}}
+{\footnotesize\ttfamily \label{class_graphics_1_1_shadow_map_a8cca9204f01ed28ff043dd48fc210f5a} 
+Graphics\+::\+Shadow\+Map\+::\+Shadow\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graphics_1_1_render_target_manager}{Render\+Target\+Manager}} \&}]{manager}{, }\item[{const std\+::string \&}]{name}{, }\item[{int}]{width}{, }\item[{int}]{height}{}\end{DoxyParamCaption})}
+
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em manager} & レンダーターゲットマネージャ参照 \\
+\hline
+\mbox{\texttt{in}}  & {\em name} & 管理名 \\
+\hline
+\mbox{\texttt{in}}  & {\em width} & 幅 \\
+\hline
+\mbox{\texttt{in}}  & {\em height} & 高さ \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_graphics_1_1_shadow_map_doc-func-members}
+\doxysubsection{関数詳解}
+\Hypertarget{class_graphics_1_1_shadow_map_a8009a29902cce31683217e28ec4d13af}\index{Graphics::ShadowMap@{Graphics::ShadowMap}!Present@{Present}}
+\index{Present@{Present}!Graphics::ShadowMap@{Graphics::ShadowMap}}
+\doxysubsubsection{\texorpdfstring{Present()}{Present()}}
+{\footnotesize\ttfamily \label{class_graphics_1_1_shadow_map_a8009a29902cce31683217e28ec4d13af} 
+void Graphics\+::\+Shadow\+Map\+::\+Present (\begin{DoxyParamCaption}\item[{int}]{x}{ = {\ttfamily 0}, }\item[{int}]{y}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+シャドウマップを画面に描画 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{in}}  & {\em x} & 描画 X \\
+\hline
+\mbox{\texttt{in}}  & {\em y} & 描画 Y \\
+\hline
+\end{DoxyParams}
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/user/\+Documents/\+Reo\+Engine/src/\mbox{\hyperlink{_shadow_map_8h}{Shadow\+Map.\+h}}\end{DoxyCompactItemize}

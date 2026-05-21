@@ -1,0 +1,58 @@
+\doxysection{C\+:/\+Users/user/\+Documents/\+Reo\+Engine/src/\+Input\+Manager.h ファイル}
+\hypertarget{_input_manager_8h}{}\label{_input_manager_8h}\index{C:/Users/user/Documents/ReoEngine/src/InputManager.h@{C:/Users/user/Documents/ReoEngine/src/InputManager.h}}
+
+
+入力管理ユーティリティの宣言  
+
+
+{\ttfamily \#include "{}Dx\+Lib.\+h"{}}\newline
+Input\+Manager.\+h の依存先関係図\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{_input_manager_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{名前空間}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_input_manager}{Input\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_input_manager_aa5480931dba2720e7d80dd00a53adae0}{Input\+Manager\+::\+Update}} ()
+\begin{DoxyCompactList}\small\item\em 入力状態更新（毎フレーム呼ぶ） \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_input_manager_a21d0bba89d06b4bbb88c28edaa20367a}{Input\+Manager\+::\+Push\+Hit\+Key}} (int key)
+\begin{DoxyCompactList}\small\item\em キーが押された瞬間か \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_input_manager_ab7785446467a4715e15046d5e6a76114}{Input\+Manager\+::\+Check\+Mouse\+Input}} (int button)
+\begin{DoxyCompactList}\small\item\em マウスボタン押下中判定 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_input_manager_aa26b6ada6f0715266c0399b18b150edd}{Input\+Manager\+::\+Push\+Mouse\+Input}} (int button)
+\begin{DoxyCompactList}\small\item\em マウスボタン押下瞬間判定 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_aaf3b26c6111df679c31b89570ea36146}{Input\+Manager\+::\+Get\+Mouse\+Wheel}} ()
+\begin{DoxyCompactList}\small\item\em マウスホイール回転量取得 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_af9bde9886eebfed884ade36fdc85337e}{Input\+Manager\+::\+Get\+MouseX}} ()
+\begin{DoxyCompactList}\small\item\em マウス\+X座標取得 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_a3fe1eecc6fd43ae5d0366c8492febbf8}{Input\+Manager\+::\+Get\+MouseY}} ()
+\begin{DoxyCompactList}\small\item\em マウス\+Y座標取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{namespace_input_manager_a90b6eab02d6db0bcaf0bd3ff1401adc6}{Input\+Manager\+::key\+\_\+buffer\+\_\+}} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em キー押下状態バッファ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_ae3e744002abbc9c3a76fb1ab383989a6}{Input\+Manager\+::key\+\_\+frame\+\_\+}} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em キー押下フレームカウンタ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_a1df64e663ef879338757fe58e9003a35}{Input\+Manager\+::mouse\+\_\+left\+\_\+frame\+\_\+}}
+\begin{DoxyCompactList}\small\item\em 左マウスボタン押下フレーム \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_acb338eb00f778a828fb920eb943c983d}{Input\+Manager\+::mouse\+\_\+right\+\_\+frame\+\_\+}}
+\begin{DoxyCompactList}\small\item\em 右マウスボタン押下フレーム \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_a73ab87958051dc1671cc4c247ccb7b04}{Input\+Manager\+::mouse\+\_\+wheel\+\_\+rot\+\_\+}}
+\begin{DoxyCompactList}\small\item\em マウスホイール回転量 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+入力管理ユーティリティの宣言 
+
+全キー入力とマウス入力を管理します。 \begin{DoxyAuthor}{著者}
+レオ 
+\end{DoxyAuthor}

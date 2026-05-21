@@ -1,95 +1,105 @@
+ï»¿//============================================================================
+//! @file   InputManager.cpp
+//! @brief  “ü—ÍŠÇ—‚ÌÀ‘•
+//! @details ƒL[ƒ{[ƒhEƒ}ƒEƒX‚Ìó‘Ô‚ğ–ˆƒtƒŒ[ƒ€æ“¾‚µAg—p‚µ‚â‚·‚¢ API ‚ğ’ñ‹Ÿ‚µ‚Ü‚·B
+//! @author ƒŒƒI
+//============================================================================
 #include "InputManager.h"
 #include <cstring>
 
-//-----------------------------------------------------------
-/// @brief “ü—ÍŠÇ—‹@”\‚Ì–¼‘O‹óŠÔ
-/// @details ‘SƒL[Eƒ}ƒEƒX“ü—Í‚Ìó‘Ôæ“¾‚¨‚æ‚ÑƒtƒŒ[ƒ€ŠÇ—‚ğs‚¤
-//-----------------------------------------------------------
 namespace InputManager {
 
-	// Ã“Iƒƒ“ƒo•Ï”’è‹`
-	char InputManager::key_buffer_[256] = {};
-	int InputManager::key_frame_[256] = {};
-	int InputManager::mouse_left_frame_ = 0;
-	int InputManager::mouse_right_frame_ = 0;
-	int InputManager::mouse_wheel_rot_ = 0;
+// ƒwƒbƒ_‚Å extern éŒ¾‚µ‚½Ã“I•Ï”‚ÌÀ‘Ì’è‹`
+char key_buffer_[256]{};
+int  key_frame_[256]{};
+int  mouse_left_frame_{};
+int  mouse_right_frame_{};
+int  mouse_wheel_rot_{};
 
-	//-------------------------------------------------------
-	/// @brief “ü—Íó‘Ô‚ğXV‚·‚é
-	/// @details ƒL[ƒ{[ƒh‘SƒL[Eƒ}ƒEƒXƒ{ƒ^ƒ“EƒzƒC[ƒ‹‚Ìó‘Ô‚ğæ“¾‚µ
-	///          ŠeƒL[‚âƒ{ƒ^ƒ“‚Ì˜A‘±‰Ÿ‰ºƒtƒŒ[ƒ€”‚ğXV‚·‚é
-	//-------------------------------------------------------
-	void InputManager::Update() {
-		// ‘SƒL[‚Ì‰Ÿ‰ºó‘Ô‚ğæ“¾
-		GetHitKeyStateAll(key_buffer_);
+//-----------------------------------------------------------
+//! @brief XVˆ—
+//-----------------------------------------------------------
+void Update()
+{
+    // ƒL[“ü—Íó‘Ô‚ğæ“¾
+    GetHitKeyStateAll(key_buffer_);
 
-		// ŠeƒL[‚ÌƒtƒŒ[ƒ€XV
-		for (int i = 0; i < 256; i++) {
-			key_frame_[i] = key_buffer_[i] ? key_frame_[i] + 1 : 0;
-		}
+    // ƒL[ƒtƒŒ[ƒ€ƒJƒEƒ“ƒ^XV
+    for(int i = 0; i < 256; i++) {
+        key_frame_[i] = key_buffer_[i] ? key_frame_[i] + 1 : 0;
+    }
 
-		// ƒ}ƒEƒXƒ{ƒ^ƒ“ƒtƒŒ[ƒ€XV
-		mouse_left_frame_ = (GetMouseInput() & MOUSE_INPUT_LEFT) ? mouse_left_frame_ + 1 : 0;
-		mouse_right_frame_ = (GetMouseInput() & MOUSE_INPUT_RIGHT) ? mouse_right_frame_ + 1 : 0;
+    // ƒ}ƒEƒXƒ{ƒ^ƒ“ó‘ÔXV
+    mouse_left_frame_  = (GetMouseInput() & MOUSE_INPUT_LEFT) ? mouse_left_frame_ + 1 : 0;
+    mouse_right_frame_ = (GetMouseInput() & MOUSE_INPUT_RIGHT) ? mouse_right_frame_ + 1 : 0;
 
-		// ƒ}ƒEƒXƒzƒC[ƒ‹XV
-		mouse_wheel_rot_ = GetMouseWheelRotVol();
-	}
-
-	//-------------------------------------------------------
-	/// @brief w’èƒL[‚ª‰Ÿ‚³‚ê‚½uŠÔ‚©‚ğ”»’è‚·‚é
-	/// @param key ”»’è‚·‚éƒL[ƒR[ƒh
-	/// @return ‰Ÿ‚³‚ê‚½uŠÔ‚È‚ç true
-	//-------------------------------------------------------
-	bool InputManager::PushHitKey(int key) {
-		return key_frame_[key] == 1;
-	}
-
-	//-------------------------------------------------------
-	/// @brief w’èƒ}ƒEƒXƒ{ƒ^ƒ“‚Ì‰Ÿ‰ºó‘Ô‚ğæ“¾‚·‚é
-	/// @param button MOUSE_INPUT_LEFT ‚È‚Ç
-	/// @return ‰Ÿ‚³‚ê‚Ä‚¢‚é‚È‚ç true
-	//-------------------------------------------------------
-	bool InputManager::CheckMouseInput(int button) {
-		return (GetMouseInput() & button) != 0;
-	}
-
-	//-------------------------------------------------------
-	/// @brief w’èƒ}ƒEƒXƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½uŠÔ‚©‚ğ”»’è‚·‚é
-	/// @param button MOUSE_INPUT_LEFT ‚È‚Ç
-	/// @return ‰Ÿ‚³‚ê‚½uŠÔ‚È‚ç true
-	//-------------------------------------------------------
-	bool InputManager::PushMouseInput(int button) {
-		if ((button & MOUSE_INPUT_LEFT) && mouse_left_frame_ == 1) return true;
-		if ((button & MOUSE_INPUT_RIGHT) && mouse_right_frame_ == 1) return true;
-		return false;
-	}
-
-	//-------------------------------------------------------
-	/// @brief ƒ}ƒEƒXƒzƒC[ƒ‹‚Ì‰ñ“]—Ê‚ğæ“¾‚·‚é
-	/// @return ƒzƒC[ƒ‹‰ñ“]—Êi1 = ã, -1 = ‰º, 0 = •Ï‰»‚È‚µj
-	//-------------------------------------------------------
-	int InputManager::GetMouseWheel() {
-		return mouse_wheel_rot_;
-	}
-
-	//-------------------------------------------------------
-	/// @brief ƒ}ƒEƒX‚Ì X À•W‚ğæ“¾‚·‚é
-	/// @return ƒ}ƒEƒX‚Ì X À•WiƒsƒNƒZƒ‹j
-	//-------------------------------------------------------
-	int InputManager::GetMouseX() {
-		int x, y;
-		GetMousePoint(&x, &y);
-		return x;
-	}
-
-	//-------------------------------------------------------
-	/// @brief ƒ}ƒEƒX‚Ì Y À•W‚ğæ“¾‚·‚é
-	/// @return ƒ}ƒEƒX‚Ì Y À•WiƒsƒNƒZƒ‹j
-	//-------------------------------------------------------
-	int InputManager::GetMouseY() {
-		int x, y;
-		GetMousePoint(&x, &y);
-		return y;
-	}
+    // ƒ}ƒEƒXƒzƒC[ƒ‹‰ñ“]—Êæ“¾
+    mouse_wheel_rot_ = GetMouseWheelRotVol();
 }
+
+//-----------------------------------------------------------
+//! @brief ‰Ÿ‰ºuŠÔ”»’è
+// @param key ”»’è‚·‚éƒL[ƒR[ƒh
+// @return ‰Ÿ‰º‚µ‚½uŠÔ‚È‚ç true
+//-----------------------------------------------------------
+bool PushHitKey(int key)
+{
+    return key_frame_[key] == 1;
+}
+
+//-----------------------------------------------------------
+//! @brief ƒ}ƒEƒXƒ{ƒ^ƒ“‰Ÿ‰º’†”»’è
+// @param button MOUSE_INPUT_LEFT “™
+// @return ‰Ÿ‰º’†‚È‚ç true
+//-----------------------------------------------------------
+bool CheckMouseInput(int button)
+{
+    return (GetMouseInput() & button) != 0;
+}
+
+//-----------------------------------------------------------
+//! @brief ƒ}ƒEƒXƒ{ƒ^ƒ“‰Ÿ‰ºuŠÔ”»’è
+// @param button MOUSE_INPUT_LEFT “™
+// @return ‰Ÿ‰º‚µ‚½uŠÔ‚È‚ç true
+//-----------------------------------------------------------
+bool PushMouseInput(int button)
+{
+    if((button & MOUSE_INPUT_LEFT) && mouse_left_frame_ == 1)
+        return true;
+    if((button & MOUSE_INPUT_RIGHT) && mouse_right_frame_ == 1)
+        return true;
+    return false;
+}
+
+//-----------------------------------------------------------
+//! @brief ƒ}ƒEƒXƒzƒC[ƒ‹‰ñ“]—Êæ“¾
+// @return 1ˆÈã = ‰œ‰ñ“], 0 = ‰ñ‚µ‚Ä‚¢‚È‚¢, -1ˆÈ‰º = è‘O‰ñ“]
+//-----------------------------------------------------------
+int GetMouseWheel()
+{
+    return mouse_wheel_rot_;
+}
+
+//-----------------------------------------------------------
+//! @brief ƒ}ƒEƒX X À•Wæ“¾
+// @return X À•W
+//-----------------------------------------------------------
+int GetMouseX()
+{
+    int x, y;
+    GetMousePoint(&x, &y);
+    return x;
+}
+
+//-----------------------------------------------------------
+//! @brief ƒ}ƒEƒX Y À•Wæ“¾
+// @return Y À•W
+//-----------------------------------------------------------
+int GetMouseY()
+{
+    int x, y;
+    GetMousePoint(&x, &y);
+    return y;
+}
+
+}    // namespace InputManager

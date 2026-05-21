@@ -1,0 +1,162 @@
+\doxysection{Input\+Manager 名前空間}
+\hypertarget{namespace_input_manager}{}\label{namespace_input_manager}\index{InputManager@{InputManager}}
+\doxysubsubsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_input_manager_aa5480931dba2720e7d80dd00a53adae0}{Update}} ()
+\begin{DoxyCompactList}\small\item\em 入力状態更新（毎フレーム呼ぶ） \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_input_manager_a21d0bba89d06b4bbb88c28edaa20367a}{Push\+Hit\+Key}} (int key)
+\begin{DoxyCompactList}\small\item\em キーが押された瞬間か \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_input_manager_ab7785446467a4715e15046d5e6a76114}{Check\+Mouse\+Input}} (int button)
+\begin{DoxyCompactList}\small\item\em マウスボタン押下中判定 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_input_manager_aa26b6ada6f0715266c0399b18b150edd}{Push\+Mouse\+Input}} (int button)
+\begin{DoxyCompactList}\small\item\em マウスボタン押下瞬間判定 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_aaf3b26c6111df679c31b89570ea36146}{Get\+Mouse\+Wheel}} ()
+\begin{DoxyCompactList}\small\item\em マウスホイール回転量取得 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_af9bde9886eebfed884ade36fdc85337e}{Get\+MouseX}} ()
+\begin{DoxyCompactList}\small\item\em マウス\+X座標取得 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_a3fe1eecc6fd43ae5d0366c8492febbf8}{Get\+MouseY}} ()
+\begin{DoxyCompactList}\small\item\em マウス\+Y座標取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{namespace_input_manager_a90b6eab02d6db0bcaf0bd3ff1401adc6}{key\+\_\+buffer\+\_\+}} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em キー押下状態バッファ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_ae3e744002abbc9c3a76fb1ab383989a6}{key\+\_\+frame\+\_\+}} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em キー押下フレームカウンタ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_a1df64e663ef879338757fe58e9003a35}{mouse\+\_\+left\+\_\+frame\+\_\+}}
+\begin{DoxyCompactList}\small\item\em 左マウスボタン押下フレーム \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_acb338eb00f778a828fb920eb943c983d}{mouse\+\_\+right\+\_\+frame\+\_\+}}
+\begin{DoxyCompactList}\small\item\em 右マウスボタン押下フレーム \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_input_manager_a73ab87958051dc1671cc4c247ccb7b04}{mouse\+\_\+wheel\+\_\+rot\+\_\+}}
+\begin{DoxyCompactList}\small\item\em マウスホイール回転量 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_input_manager_doc-func-members}
+\doxysubsection{関数詳解}
+\Hypertarget{namespace_input_manager_ab7785446467a4715e15046d5e6a76114}\index{InputManager@{InputManager}!CheckMouseInput@{CheckMouseInput}}
+\index{CheckMouseInput@{CheckMouseInput}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{CheckMouseInput()}{CheckMouseInput()}}
+{\footnotesize\ttfamily \label{namespace_input_manager_ab7785446467a4715e15046d5e6a76114} 
+bool Input\+Manager\+::\+Check\+Mouse\+Input (\begin{DoxyParamCaption}\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+
+
+マウスボタン押下中判定 
+
+\Hypertarget{namespace_input_manager_aaf3b26c6111df679c31b89570ea36146}\index{InputManager@{InputManager}!GetMouseWheel@{GetMouseWheel}}
+\index{GetMouseWheel@{GetMouseWheel}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{GetMouseWheel()}{GetMouseWheel()}}
+{\footnotesize\ttfamily \label{namespace_input_manager_aaf3b26c6111df679c31b89570ea36146} 
+int Input\+Manager\+::\+Get\+Mouse\+Wheel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+マウスホイール回転量取得 
+
+\Hypertarget{namespace_input_manager_af9bde9886eebfed884ade36fdc85337e}\index{InputManager@{InputManager}!GetMouseX@{GetMouseX}}
+\index{GetMouseX@{GetMouseX}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{GetMouseX()}{GetMouseX()}}
+{\footnotesize\ttfamily \label{namespace_input_manager_af9bde9886eebfed884ade36fdc85337e} 
+int Input\+Manager\+::\+Get\+MouseX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+マウス\+X座標取得 
+
+\Hypertarget{namespace_input_manager_a3fe1eecc6fd43ae5d0366c8492febbf8}\index{InputManager@{InputManager}!GetMouseY@{GetMouseY}}
+\index{GetMouseY@{GetMouseY}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{GetMouseY()}{GetMouseY()}}
+{\footnotesize\ttfamily \label{namespace_input_manager_a3fe1eecc6fd43ae5d0366c8492febbf8} 
+int Input\+Manager\+::\+Get\+MouseY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+マウス\+Y座標取得 
+
+\Hypertarget{namespace_input_manager_a21d0bba89d06b4bbb88c28edaa20367a}\index{InputManager@{InputManager}!PushHitKey@{PushHitKey}}
+\index{PushHitKey@{PushHitKey}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{PushHitKey()}{PushHitKey()}}
+{\footnotesize\ttfamily \label{namespace_input_manager_a21d0bba89d06b4bbb88c28edaa20367a} 
+bool Input\+Manager\+::\+Push\+Hit\+Key (\begin{DoxyParamCaption}\item[{int}]{key}{}\end{DoxyParamCaption})}
+
+
+
+キーが押された瞬間か 
+
+\Hypertarget{namespace_input_manager_aa26b6ada6f0715266c0399b18b150edd}\index{InputManager@{InputManager}!PushMouseInput@{PushMouseInput}}
+\index{PushMouseInput@{PushMouseInput}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{PushMouseInput()}{PushMouseInput()}}
+{\footnotesize\ttfamily \label{namespace_input_manager_aa26b6ada6f0715266c0399b18b150edd} 
+bool Input\+Manager\+::\+Push\+Mouse\+Input (\begin{DoxyParamCaption}\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+
+
+マウスボタン押下瞬間判定 
+
+\Hypertarget{namespace_input_manager_aa5480931dba2720e7d80dd00a53adae0}\index{InputManager@{InputManager}!Update@{Update}}
+\index{Update@{Update}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{namespace_input_manager_aa5480931dba2720e7d80dd00a53adae0} 
+void Input\+Manager\+::\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+入力状態更新（毎フレーム呼ぶ） 
+
+
+
+\label{doc-var-members}
+\Hypertarget{namespace_input_manager_doc-var-members}
+\doxysubsection{変数詳解}
+\Hypertarget{namespace_input_manager_a90b6eab02d6db0bcaf0bd3ff1401adc6}\index{InputManager@{InputManager}!key\_buffer\_@{key\_buffer\_}}
+\index{key\_buffer\_@{key\_buffer\_}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{key\_buffer\_}{key\_buffer\_}}
+{\footnotesize\ttfamily \label{namespace_input_manager_a90b6eab02d6db0bcaf0bd3ff1401adc6} 
+char Input\+Manager\+::key\+\_\+buffer\+\_\+\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+キー押下状態バッファ 
+
+\Hypertarget{namespace_input_manager_ae3e744002abbc9c3a76fb1ab383989a6}\index{InputManager@{InputManager}!key\_frame\_@{key\_frame\_}}
+\index{key\_frame\_@{key\_frame\_}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{key\_frame\_}{key\_frame\_}}
+{\footnotesize\ttfamily \label{namespace_input_manager_ae3e744002abbc9c3a76fb1ab383989a6} 
+int Input\+Manager\+::key\+\_\+frame\+\_\+\mbox{[}256\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+キー押下フレームカウンタ 
+
+\Hypertarget{namespace_input_manager_a1df64e663ef879338757fe58e9003a35}\index{InputManager@{InputManager}!mouse\_left\_frame\_@{mouse\_left\_frame\_}}
+\index{mouse\_left\_frame\_@{mouse\_left\_frame\_}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{mouse\_left\_frame\_}{mouse\_left\_frame\_}}
+{\footnotesize\ttfamily \label{namespace_input_manager_a1df64e663ef879338757fe58e9003a35} 
+int Input\+Manager\+::mouse\+\_\+left\+\_\+frame\+\_\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+左マウスボタン押下フレーム 
+
+\Hypertarget{namespace_input_manager_acb338eb00f778a828fb920eb943c983d}\index{InputManager@{InputManager}!mouse\_right\_frame\_@{mouse\_right\_frame\_}}
+\index{mouse\_right\_frame\_@{mouse\_right\_frame\_}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{mouse\_right\_frame\_}{mouse\_right\_frame\_}}
+{\footnotesize\ttfamily \label{namespace_input_manager_acb338eb00f778a828fb920eb943c983d} 
+int Input\+Manager\+::mouse\+\_\+right\+\_\+frame\+\_\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+右マウスボタン押下フレーム 
+
+\Hypertarget{namespace_input_manager_a73ab87958051dc1671cc4c247ccb7b04}\index{InputManager@{InputManager}!mouse\_wheel\_rot\_@{mouse\_wheel\_rot\_}}
+\index{mouse\_wheel\_rot\_@{mouse\_wheel\_rot\_}!InputManager@{InputManager}}
+\doxysubsubsection{\texorpdfstring{mouse\_wheel\_rot\_}{mouse\_wheel\_rot\_}}
+{\footnotesize\ttfamily \label{namespace_input_manager_a73ab87958051dc1671cc4c247ccb7b04} 
+int Input\+Manager\+::mouse\+\_\+wheel\+\_\+rot\+\_\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+マウスホイール回転量 
+

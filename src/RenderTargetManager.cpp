@@ -1,0 +1,125 @@
+ï»¿//============================================================================
+//! @file   RenderTargetManager.cpp
+//! @brief  ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgŠÇ—‚ÌÀ‘•
+//! @details DxLib ‚ÌƒXƒNƒŠ[ƒ“ƒnƒ“ƒhƒ‹‚ğ—p‚¢‚Ä–¼‘O•t‚«ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚ğŠÇ—
+//! @author ƒŒƒI
+//============================================================================
+#include "RenderTargetManager.h"    // ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgŠÇ—‚ÌéŒ¾
+#include "DxMain.h"                 // DxLib —˜—p
+#include <unordered_map>            // ŠÇ——p‚ÌƒnƒbƒVƒ…ƒ}ƒbƒv
+#include <string>                   // •¶š—ñ
+#include <memory>                   // ƒXƒ}[ƒgƒ|ƒCƒ“ƒ^
+
+namespace Graphics {
+//-----------------------------------------------------------
+//! @brief Impl \‘¢‘ÌiÀ‘•Ú×j
+//-----------------------------------------------------------
+struct RenderTargetManager::Impl
+{
+    std::unordered_map<std::string, int> handles;       //!< ŠÇ—–¼ -> ƒOƒ‰ƒtƒBƒbƒNƒnƒ“ƒhƒ‹
+    std::string                          activeName;    //!< Œ»İƒAƒNƒeƒBƒu‚Èƒ^[ƒQƒbƒg–¼
+};
+
+//-----------------------------------------------------------
+//! @brief ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+//-----------------------------------------------------------
+RenderTargetManager::RenderTargetManager()
+    : m_impl(std::make_unique<Impl>())
+{
+}
+
+//-----------------------------------------------------------
+//! @brief ƒfƒXƒgƒ‰ƒNƒ^
+//-----------------------------------------------------------
+RenderTargetManager::~RenderTargetManager()
+{
+    ReleaseAll();
+}
+
+//-----------------------------------------------------------
+//! @brief ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgì¬
+//-----------------------------------------------------------
+int RenderTargetManager::CreateRenderTarget(const std::string& name, int width, int height, bool useAlpha)
+{
+    if(m_impl->handles.find(name) != m_impl->handles.end())
+        return m_impl->handles[name];
+
+    int handle = MakeScreen(width, height, useAlpha ? TRUE : FALSE);
+    if(handle == -1)
+        return -1;
+
+    m_impl->handles[name] = handle;
+    return handle;
+}
+
+//-----------------------------------------------------------
+//! @brief ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚ğƒAƒNƒeƒBƒu‚É‚·‚é
+//-----------------------------------------------------------
+bool RenderTargetManager::SetActive(const std::string& name)
+{
+    auto it = m_impl->handles.find(name);
+    if(it == m_impl->handles.end())
+        return false;
+
+    SetDrawScreen(it->second);
+    m_impl->activeName = name;
+    return true;
+}
+
+//-----------------------------------------------------------
+//! @brief •`‰ææ‚ğƒoƒbƒNƒoƒbƒtƒ@‚É–ß‚·
+//-----------------------------------------------------------
+void RenderTargetManager::ResetToScreen()
+{
+    SetDrawScreen(DX_SCREEN_BACK);
+    m_impl->activeName.clear();
+}
+
+//-----------------------------------------------------------
+//! @brief w’èƒ^[ƒQƒbƒg‚ğ‰æ–Ê‚É•`‰æ‚·‚é
+//-----------------------------------------------------------
+void RenderTargetManager::Present(const std::string& name, int x, int y)
+{
+    auto it = m_impl->handles.find(name);
+    if(it == m_impl->handles.end())
+        return;
+
+    int h = it->second;
+    DrawGraph(x, y, h, TRUE);
+}
+
+//-----------------------------------------------------------
+//! @brief w’èƒ^[ƒQƒbƒg‚ğ‰ğ•ú‚·‚é
+//-----------------------------------------------------------
+void RenderTargetManager::Release(const std::string& name)
+{
+    auto it = m_impl->handles.find(name);
+    if(it == m_impl->handles.end())
+        return;
+
+    DeleteGraph(it->second);
+    m_impl->handles.erase(it);
+}
+
+//-----------------------------------------------------------
+//! @brief ‘S‚Ä‚Ìƒ^[ƒQƒbƒg‚ğ‰ğ•ú‚·‚é
+//-----------------------------------------------------------
+void RenderTargetManager::ReleaseAll()
+{
+    for(auto& kv : m_impl->handles) {
+        DeleteGraph(kv.second);
+    }
+    m_impl->handles.clear();
+}
+
+//-----------------------------------------------------------
+//! @brief ƒ^[ƒQƒbƒgƒnƒ“ƒhƒ‹æ“¾
+//-----------------------------------------------------------
+int RenderTargetManager::GetHandle(const std::string& name) const
+{
+    auto it = m_impl->handles.find(name);
+    if(it == m_impl->handles.end())
+        return -1;
+    return it->second;
+}
+}    // namespace Graphics

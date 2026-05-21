@@ -1,0 +1,275 @@
+\doxysection{Scene\+::Scene\+Base クラス}
+\hypertarget{class_scene_1_1_scene_base}{}\label{class_scene_1_1_scene_base}\index{Scene::SceneBase@{Scene::SceneBase}}
+
+
+シーン基底クラス  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Base.\+h$>$}
+
+
+
+Scene\+::Scene\+Base の継承関係図\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_scene_1_1_scene_base__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Scene\+::Scene\+Base 連携図\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_scene_1_1_scene_base__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a29cedff7b1f1283cea375d8ed8bad9bd}{Init}} ()
+\begin{DoxyCompactList}\small\item\em シーン初期化 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_afcbc5b70ee53f126dd68a701d31d3497}{Update}} ()
+\begin{DoxyCompactList}\small\item\em シーン更新 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a31db66e612b6ec093d188e592b930e43}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em シーン描画 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a30812e9f8af495658f635c3f196a242f}{End}} ()
+\begin{DoxyCompactList}\small\item\em シーン終了処理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_a457f6f8e0403169a5cd25c88cb22bb48}{Add\+Object}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$ obj)
+\begin{DoxyCompactList}\small\item\em オブジェクトを追加 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a31cd1523e65464dce3b442841b886e3a}{Scene\+Init}} ()
+\begin{DoxyCompactList}\small\item\em シーン固有の初期化処理 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a516fb34023090b6a637828b0c914689d}{Scene\+Update}} ()
+\begin{DoxyCompactList}\small\item\em シーン固有の更新処理 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a0dbacd839adeecfd422f1061e3511141}{Scene\+Draw}} ()
+\begin{DoxyCompactList}\small\item\em シーン固有の描画処理 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_scene_1_1_scene_base_a483c6a8fdc675c4a2abe0e8d099f1618}{Scene\+End}} ()
+\begin{DoxyCompactList}\small\item\em シーン固有の終了処理 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_scene_1_1_scene_base_a49a30f1c807dba7f45f37858255b7065}{Add\+Object\+Set\+Name}} (const std\+::string \&obj\+\_\+name)
+\begin{DoxyCompactList}\small\item\em オブジェクト追加 \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_scene_1_1_scene_base_aa03d0c19e1187e6a4084e79f5bd1bc13}{Get\+Scene\+Object}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクト取得 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_ab53511392eec055bf9e2fa526c4528ee}{Object\+Init}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの初期化呼び出し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_a3b3515eb4d27ba994d4567ed09beda82}{Object\+Update}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの更新呼び出し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_a533e3c4fe53e9f4d5f610623bb1e24e8}{Object\+Draw}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの描画呼び出し \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_1_1_scene_base_ac3b25ef760864deaed361a3caeb2f1be}{Object\+End}} ()
+\begin{DoxyCompactList}\small\item\em シーン内オブジェクトの終了呼び出し \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{限定公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$ $>$ \mbox{\hyperlink{class_scene_1_1_scene_base_ac8937ecd828f30bcff4fb62402c50cff}{m\+\_\+scene\+\_\+objects}}
+\begin{DoxyCompactList}\small\item\em シーンが保持するオブジェクト \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+シーン基底クラス 
+
+シーン内のオブジェクト管理およびライフサイクルを提供 
+
+\label{doc-func-members}
+\Hypertarget{class_scene_1_1_scene_base_doc-func-members}
+\doxysubsection{関数詳解}
+\Hypertarget{class_scene_1_1_scene_base_a457f6f8e0403169a5cd25c88cb22bb48}\index{Scene::SceneBase@{Scene::SceneBase}!AddObject@{AddObject}}
+\index{AddObject@{AddObject}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{AddObject()}{AddObject()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a457f6f8e0403169a5cd25c88cb22bb48} 
+void Scene\+::\+Scene\+Base\+::\+Add\+Object (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+オブジェクトを追加 
+
+
+\begin{DoxyParams}{引数}
+{\em obj} & 追加するオブジェクト(shared\+\_\+ptr) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_scene_1_1_scene_base_a49a30f1c807dba7f45f37858255b7065}\index{Scene::SceneBase@{Scene::SceneBase}!AddObjectSetName@{AddObjectSetName}}
+\index{AddObjectSetName@{AddObjectSetName}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{AddObjectSetName()}{AddObjectSetName()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a49a30f1c807dba7f45f37858255b7065} 
+template$<$typename T$>$ \\
+void Scene\+::\+Scene\+Base\+::\+Add\+Object\+Set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+\_\+name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+オブジェクト追加 
+
+
+\begin{DoxyParams}{引数}
+{\em obj\+\_\+name} & 追加するオブジェクトの名前 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_scene_1_1_scene_base_a31db66e612b6ec093d188e592b930e43}\index{Scene::SceneBase@{Scene::SceneBase}!Draw@{Draw}}
+\index{Draw@{Draw}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a31db66e612b6ec093d188e592b930e43} 
+virtual void Scene\+::\+Scene\+Base\+::\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+シーン描画 
+
+\Hypertarget{class_scene_1_1_scene_base_a30812e9f8af495658f635c3f196a242f}\index{Scene::SceneBase@{Scene::SceneBase}!End@{End}}
+\index{End@{End}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a30812e9f8af495658f635c3f196a242f} 
+virtual void Scene\+::\+Scene\+Base\+::\+End (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+シーン終了処理 
+
+\Hypertarget{class_scene_1_1_scene_base_aa03d0c19e1187e6a4084e79f5bd1bc13}\index{Scene::SceneBase@{Scene::SceneBase}!GetSceneObject@{GetSceneObject}}
+\index{GetSceneObject@{GetSceneObject}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{GetSceneObject()}{GetSceneObject()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_aa03d0c19e1187e6a4084e79f5bd1bc13} 
+template$<$typename T$>$ \\
+std\+::shared\+\_\+ptr$<$ T $>$ Scene\+::\+Scene\+Base\+::\+Get\+Scene\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+シーン内オブジェクト取得 
+
+
+\begin{DoxyTemplParams}{テンプレート引数}
+{\em T} & 取得したい型（\+Object\+Base または派生型） \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{引数}
+{\em name} & オブジェクト名 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+見つかれば shared\+\_\+ptr$<$\+T$>$、なければ nullptr 
+\end{DoxyReturn}
+\Hypertarget{class_scene_1_1_scene_base_a29cedff7b1f1283cea375d8ed8bad9bd}\index{Scene::SceneBase@{Scene::SceneBase}!Init@{Init}}
+\index{Init@{Init}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a29cedff7b1f1283cea375d8ed8bad9bd} 
+virtual void Scene\+::\+Scene\+Base\+::\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+シーン初期化 
+
+\Hypertarget{class_scene_1_1_scene_base_a533e3c4fe53e9f4d5f610623bb1e24e8}\index{Scene::SceneBase@{Scene::SceneBase}!ObjectDraw@{ObjectDraw}}
+\index{ObjectDraw@{ObjectDraw}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{ObjectDraw()}{ObjectDraw()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a533e3c4fe53e9f4d5f610623bb1e24e8} 
+void Scene\+::\+Scene\+Base\+::\+Object\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+シーン内オブジェクトの描画呼び出し 
+
+\Hypertarget{class_scene_1_1_scene_base_ac3b25ef760864deaed361a3caeb2f1be}\index{Scene::SceneBase@{Scene::SceneBase}!ObjectEnd@{ObjectEnd}}
+\index{ObjectEnd@{ObjectEnd}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{ObjectEnd()}{ObjectEnd()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_ac3b25ef760864deaed361a3caeb2f1be} 
+void Scene\+::\+Scene\+Base\+::\+Object\+End (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+シーン内オブジェクトの終了呼び出し 
+
+\Hypertarget{class_scene_1_1_scene_base_ab53511392eec055bf9e2fa526c4528ee}\index{Scene::SceneBase@{Scene::SceneBase}!ObjectInit@{ObjectInit}}
+\index{ObjectInit@{ObjectInit}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{ObjectInit()}{ObjectInit()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_ab53511392eec055bf9e2fa526c4528ee} 
+void Scene\+::\+Scene\+Base\+::\+Object\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+シーン内オブジェクトの初期化呼び出し 
+
+\Hypertarget{class_scene_1_1_scene_base_a3b3515eb4d27ba994d4567ed09beda82}\index{Scene::SceneBase@{Scene::SceneBase}!ObjectUpdate@{ObjectUpdate}}
+\index{ObjectUpdate@{ObjectUpdate}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{ObjectUpdate()}{ObjectUpdate()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a3b3515eb4d27ba994d4567ed09beda82} 
+void Scene\+::\+Scene\+Base\+::\+Object\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+シーン内オブジェクトの更新呼び出し 
+
+\Hypertarget{class_scene_1_1_scene_base_a0dbacd839adeecfd422f1061e3511141}\index{Scene::SceneBase@{Scene::SceneBase}!SceneDraw@{SceneDraw}}
+\index{SceneDraw@{SceneDraw}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{SceneDraw()}{SceneDraw()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a0dbacd839adeecfd422f1061e3511141} 
+virtual void Scene\+::\+Scene\+Base\+::\+Scene\+Draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+シーン固有の描画処理 
+
+\Hypertarget{class_scene_1_1_scene_base_a483c6a8fdc675c4a2abe0e8d099f1618}\index{Scene::SceneBase@{Scene::SceneBase}!SceneEnd@{SceneEnd}}
+\index{SceneEnd@{SceneEnd}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{SceneEnd()}{SceneEnd()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a483c6a8fdc675c4a2abe0e8d099f1618} 
+virtual void Scene\+::\+Scene\+Base\+::\+Scene\+End (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+シーン固有の終了処理 
+
+\Hypertarget{class_scene_1_1_scene_base_a31cd1523e65464dce3b442841b886e3a}\index{Scene::SceneBase@{Scene::SceneBase}!SceneInit@{SceneInit}}
+\index{SceneInit@{SceneInit}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{SceneInit()}{SceneInit()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a31cd1523e65464dce3b442841b886e3a} 
+virtual void Scene\+::\+Scene\+Base\+::\+Scene\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+シーン固有の初期化処理 
+
+\Hypertarget{class_scene_1_1_scene_base_a516fb34023090b6a637828b0c914689d}\index{Scene::SceneBase@{Scene::SceneBase}!SceneUpdate@{SceneUpdate}}
+\index{SceneUpdate@{SceneUpdate}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{SceneUpdate()}{SceneUpdate()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_a516fb34023090b6a637828b0c914689d} 
+virtual void Scene\+::\+Scene\+Base\+::\+Scene\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+シーン固有の更新処理 
+
+\Hypertarget{class_scene_1_1_scene_base_afcbc5b70ee53f126dd68a701d31d3497}\index{Scene::SceneBase@{Scene::SceneBase}!Update@{Update}}
+\index{Update@{Update}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_afcbc5b70ee53f126dd68a701d31d3497} 
+virtual void Scene\+::\+Scene\+Base\+::\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+シーン更新 
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_scene_1_1_scene_base_doc-variable-members}
+\doxysubsection{メンバ詳解}
+\Hypertarget{class_scene_1_1_scene_base_ac8937ecd828f30bcff4fb62402c50cff}\index{Scene::SceneBase@{Scene::SceneBase}!m\_scene\_objects@{m\_scene\_objects}}
+\index{m\_scene\_objects@{m\_scene\_objects}!Scene::SceneBase@{Scene::SceneBase}}
+\doxysubsubsection{\texorpdfstring{m\_scene\_objects}{m\_scene\_objects}}
+{\footnotesize\ttfamily \label{class_scene_1_1_scene_base_ac8937ecd828f30bcff4fb62402c50cff} 
+std\+::vector$<$ std\+::shared\+\_\+ptr $<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$ $>$ Scene\+::\+Scene\+Base\+::m\+\_\+scene\+\_\+objects\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+シーンが保持するオブジェクト 
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/user/\+Documents/\+Reo\+Engine/src/\mbox{\hyperlink{_scene_base_8h}{Scene\+Base.\+h}}\end{DoxyCompactItemize}

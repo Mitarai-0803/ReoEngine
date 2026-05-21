@@ -1,0 +1,83 @@
+\doxysection{Transform.\+h}
+\hypertarget{_transform_8h_source}{}\label{_transform_8h_source}\index{C:/Users/user/Documents/ReoEngine/src/Transform.h@{C:/Users/user/Documents/ReoEngine/src/Transform.h}}
+\mbox{\hyperlink{_transform_8h}{\mbox{[}詳解\mbox{]}}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//============================================================================}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//============================================================================}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }Vector3\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}}\ =\ 0.0f;\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}}\ =\ 0.0f;\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}\ =\ 0.0f;\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ Vector3()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ \ \ \ \ Vector3(\textcolor{keywordtype}{float}\ nx,\ \textcolor{keywordtype}{float}\ ny,\ \textcolor{keywordtype}{float}\ nz)\ :\ \mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}}(nx),\ \mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}}(ny),\ \mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}(nz)\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ ベクトル加算}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\{\mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}}\ +\ other.\mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}},\ \mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}}\ +\ other.\mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}},\ \mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}\ +\ other.\mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}\};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ ベクトル減算}}
+\DoxyCodeLine{00029\ \ \ \ \ Vector3\ operator-\/(\textcolor{keyword}{const}\ Vector3\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Vector3\{\mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}}\ -\/\ other.\mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}},\ \mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}}\ -\/\ other.\mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}},\ \mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}\ -\/\ other.\mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}\};}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ スカラー倍}}
+\DoxyCodeLine{00034\ \ \ \ \ Vector3\ operator*(\textcolor{keywordtype}{float}\ s)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Vector3\{\mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}}\ *\ s,\ \mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}}\ *\ s,\ \mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}\ *\ s\};}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//============================================================================}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//============================================================================}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }Transform\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{struct_transform_ac940fdbf60a92c626326e571935dffdb}{position}};\ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{struct_transform_a0cd23a67d612501825aed70b67a10d0d}{rotation}};\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{struct_transform_a2b4006024b283c6af2813e78e7092364}{scale}}\{1.0f,\ 1.0f,\ 1.0f\};\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{struct_transform}{Transform}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ 位置設定}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPosition(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z\ =\ 0.0f)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_ac940fdbf60a92c626326e571935dffdb}{position}}.\mbox{\hyperlink{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}{x}}\ =\ x;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_ac940fdbf60a92c626326e571935dffdb}{position}}.\mbox{\hyperlink{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}{y}}\ =\ y;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_ac940fdbf60a92c626326e571935dffdb}{position}}.\mbox{\hyperlink{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}{z}}\ =\ z;}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ 位置加算}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ Translate(\textcolor{keywordtype}{float}\ dx,\ \textcolor{keywordtype}{float}\ dy,\ \textcolor{keywordtype}{float}\ dz\ =\ 0.0f)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_ac940fdbf60a92c626326e571935dffdb}{position}}.x\ +=\ dx;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_ac940fdbf60a92c626326e571935dffdb}{position}}.y\ +=\ dy;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_ac940fdbf60a92c626326e571935dffdb}{position}}.z\ +=\ dz;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ 回転設定（度）}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRotation(\textcolor{keywordtype}{float}\ pitch,\ \textcolor{keywordtype}{float}\ yaw,\ \textcolor{keywordtype}{float}\ roll\ =\ 0.0f)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a0cd23a67d612501825aed70b67a10d0d}{rotation}}.x\ =\ pitch;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a0cd23a67d612501825aed70b67a10d0d}{rotation}}.y\ =\ yaw;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a0cd23a67d612501825aed70b67a10d0d}{rotation}}.z\ =\ roll;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ 回転加算（度）}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ Rotate(\textcolor{keywordtype}{float}\ dpitch,\ \textcolor{keywordtype}{float}\ dyaw,\ \textcolor{keywordtype}{float}\ droll\ =\ 0.0f)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a0cd23a67d612501825aed70b67a10d0d}{rotation}}.x\ +=\ dpitch;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a0cd23a67d612501825aed70b67a10d0d}{rotation}}.y\ +=\ dyaw;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a0cd23a67d612501825aed70b67a10d0d}{rotation}}.z\ +=\ droll;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ スケール設定}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ SetScale(\textcolor{keywordtype}{float}\ sx,\ \textcolor{keywordtype}{float}\ sy,\ \textcolor{keywordtype}{float}\ sz\ =\ 1.0f)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a2b4006024b283c6af2813e78e7092364}{scale}}.x\ =\ sx;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a2b4006024b283c6af2813e78e7092364}{scale}}.y\ =\ sy;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_transform_a2b4006024b283c6af2813e78e7092364}{scale}}.z\ =\ sz;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \};}
+
+\end{DoxyCode}

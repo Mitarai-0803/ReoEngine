@@ -1,0 +1,76 @@
+\doxysection{Engine\+::Engine クラス}
+\hypertarget{class_engine_1_1_engine}{}\label{class_engine_1_1_engine}\index{Engine::Engine@{Engine::Engine}}
+
+
+{\ttfamily \#include $<$Engine.\+h$>$}
+
+
+
+Engine\+::Engine 連携図\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{class_engine_1_1_engine__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_engine_1_1_engine_abbf0d37eb8abf9613573765c65d6db5e}{Add\+Object}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$ obj)
+\begin{DoxyCompactList}\small\item\em Object\+Base を追加する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_engine_1_1_engine_a7d35256fec933b4433238f90e426656d}{Update\+All}} ()
+\begin{DoxyCompactList}\small\item\em 登録されている Object\+Base をすべて更新する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_engine_1_1_engine_a783c52164570b19214aedc468c4f7c77}{Draw\+All}} ()
+\begin{DoxyCompactList}\small\item\em 登録されている Object\+Base をすべて描画する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_engine_1_1_engine_a526779e94b5f5fe5af3c6fd16ce9498c}{End\+All}} ()
+\begin{DoxyCompactList}\small\item\em 登録されている Object\+Base の終了処理をすべて呼び出す \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_engine_1_1_engine_doc-func-members}
+\doxysubsection{関数詳解}
+\Hypertarget{class_engine_1_1_engine_abbf0d37eb8abf9613573765c65d6db5e}\index{Engine::Engine@{Engine::Engine}!AddObject@{AddObject}}
+\index{AddObject@{AddObject}!Engine::Engine@{Engine::Engine}}
+\doxysubsubsection{\texorpdfstring{AddObject()}{AddObject()}}
+{\footnotesize\ttfamily \label{class_engine_1_1_engine_abbf0d37eb8abf9613573765c65d6db5e} 
+void Engine\+::\+Engine\+::\+Add\+Object (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_object_1_1_object_base}{Object\+::\+Object\+Base}} $>$}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+Object\+Base を追加する 
+
+\Hypertarget{class_engine_1_1_engine_a783c52164570b19214aedc468c4f7c77}\index{Engine::Engine@{Engine::Engine}!DrawAll@{DrawAll}}
+\index{DrawAll@{DrawAll}!Engine::Engine@{Engine::Engine}}
+\doxysubsubsection{\texorpdfstring{DrawAll()}{DrawAll()}}
+{\footnotesize\ttfamily \label{class_engine_1_1_engine_a783c52164570b19214aedc468c4f7c77} 
+void Engine\+::\+Engine\+::\+Draw\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+登録されている Object\+Base をすべて描画する 
+
+\Hypertarget{class_engine_1_1_engine_a526779e94b5f5fe5af3c6fd16ce9498c}\index{Engine::Engine@{Engine::Engine}!EndAll@{EndAll}}
+\index{EndAll@{EndAll}!Engine::Engine@{Engine::Engine}}
+\doxysubsubsection{\texorpdfstring{EndAll()}{EndAll()}}
+{\footnotesize\ttfamily \label{class_engine_1_1_engine_a526779e94b5f5fe5af3c6fd16ce9498c} 
+void Engine\+::\+Engine\+::\+End\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+登録されている Object\+Base の終了処理をすべて呼び出す 
+
+\Hypertarget{class_engine_1_1_engine_a7d35256fec933b4433238f90e426656d}\index{Engine::Engine@{Engine::Engine}!UpdateAll@{UpdateAll}}
+\index{UpdateAll@{UpdateAll}!Engine::Engine@{Engine::Engine}}
+\doxysubsubsection{\texorpdfstring{UpdateAll()}{UpdateAll()}}
+{\footnotesize\ttfamily \label{class_engine_1_1_engine_a7d35256fec933b4433238f90e426656d} 
+void Engine\+::\+Engine\+::\+Update\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+登録されている Object\+Base をすべて更新する 
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/user/\+Documents/\+Reo\+Engine/src/\mbox{\hyperlink{_engine_8h}{Engine.\+h}}\end{DoxyCompactItemize}
