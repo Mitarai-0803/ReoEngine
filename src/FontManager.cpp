@@ -19,12 +19,7 @@ int FontManager::m_font_handles[FONT_MAX]{};
 //-----------------------------------------------------------
 void FontManager::Init()
 {
-    m_font_handles[FONT_SIZE_70_INDEX] = LoadFontDataToHandle("EngineData/Font/FOT_RaglanPunch_70.dft");
-    m_font_handles[FONT_SIZE_50_INDEX] = LoadFontDataToHandle("EngineData/Font/FOT_RaglanPunch_50.dft");
-    m_font_handles[FONT_SIZE_40_INDEX] = LoadFontDataToHandle("EngineData/Font/FOT_RaglanPunch_40.dft");
-    m_font_handles[FONT_SIZE_30_INDEX] = LoadFontDataToHandle("EngineData/Font/FOT_RaglanPunch_30.dft");
-    m_font_handles[FONT_SIZE_25_INDEX] = LoadFontDataToHandle("EngineData/Font/FOT_RaglanPunch_25.dft");
-    m_font_handles[FONT_SIZE_10_INDEX] = LoadFontDataToHandle("EngineData/Font/FOT_RaglanPunch_10.dft");
+    m_font_handles[FONT_NOTO_SANS_INDEX] = LoadFontDataToHandle("data/Fonts/Noto Sans Japanese.dft");
 }
 
 //-----------------------------------------------------------
@@ -47,9 +42,13 @@ void FontManager::Exit()
 //-----------------------------------------------------------
 int FontManager::GetFont(int font_index)
 {
-    if(font_index < 0 || font_index >= FONT_MAX)
-        font_index = FONT_SIZE_70_INDEX;
-    return m_font_handles[font_index];
+    // 範囲外のインデックスは最小値(-1)を返す
+    if(font_index < FONT_MIN + 1 || font_index >= FONT_MAX) {
+        return FONT_MIN;
+    }
+    else {
+        return m_font_handles[font_index];    // フォントハンドルを返す
+    }
 }
 
 //-----------------------------------------------------------

@@ -9,7 +9,7 @@
 #include "GameScene.h"        //!< ゲームシーン
 #include "SceneManager.h"     //!< シーンマネージャ
 #include "InputManager.h"     //!< 入力管理
-#include "Font.h"             //!< フォント管理
+#include "FontManager.h"      //!< フォント管理
 #include "ConstantsGame.h"    //!< ゲーム用定数ファイル
 
 //-----------------------------------------------------------
